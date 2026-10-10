@@ -55,7 +55,7 @@ new folder there plus an entry in `LANGUAGES` (`src/shared/i18n/language.ts`), a
 
 ## Getting started
 
-Requires Node.js 20.19 or newer (22.12+ recommended).
+Testet on Node v24.16.0
 
 | Command | What it does |
 | --- | --- |
