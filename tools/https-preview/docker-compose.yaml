@@ -1,0 +1,21 @@
+# Serves the production build (dist/) over HTTPS in your local network, so real phones can use the camera (browsers only allow
+# it on https). A throwaway certificate of Caddy's own local authority, no cloud, nothing leaves your network.
+# Start: tools/https-preview/start.sh or start-d.sh, they find address and name (by hand: HOST_ADDRESS=<lan-ip> HOST_NAME=<name> docker compose … up -d).
+services:
+  https-preview:
+    image: caddy:2-alpine
+    container_name: catkart-https-preview
+    restart: unless-stopped
+    ports:
+      - "${HTTPS_PORT:-8745}:8745"
+    environment:
+      HOST_ADDRESS: ${HOST_ADDRESS:?Set HOST_ADDRESS to the LAN address of this computer, e.g. 192.168.1.20}
+      # The certificate also holds the computer's name and name.local (reachable that way on most home networks).
+      HOST_NAME: ${HOST_NAME:?Set HOST_NAME to the name of this computer, e.g. raspberrypi}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ../../dist:/srv:ro
+      - caddy-data:/data
+
+volumes:
+  caddy-data:

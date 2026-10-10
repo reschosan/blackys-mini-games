@@ -1,0 +1,1 @@
+export { FARM } from './map';

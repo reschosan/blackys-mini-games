@@ -1,0 +1,9 @@
+# Only the code is formatted (see "format" in package.json); generated and copied files stay as they are.
+dist
+node_modules
+public
+.examples
+test-results
+playwright-report
+custom-elements.json
+web-types.json

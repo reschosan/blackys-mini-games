@@ -1,0 +1,3328 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cAlertBanner.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Warning at the bottom of the screen: `<c-alert-banner>Gamepad getrennt</c-alert-banner>`;\n`raised` sits above a banner that is already there.",
+          "name": "CAlertBanner",
+          "members": [
+            {
+              "kind": "field",
+              "name": "raised",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "raised"
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "raised",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "raised"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-alert-banner",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CAlertBanner",
+          "declaration": {
+            "name": "CAlertBanner",
+            "module": "src/shared/ui/components/cAlertBanner.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-alert-banner",
+          "declaration": {
+            "name": "CAlertBanner",
+            "module": "src/shared/ui/components/cAlertBanner.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cButton.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`<c-button label=\"Zurück\" mode=\"cancel\" size=\"l\" compact></c-button>`; `active` marks the\noption currently selected with keyboard, gamepad or phone.",
+          "name": "CButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "privacy": "public",
+              "type": {
+                "text": "ButtonMode"
+              },
+              "default": "'default'",
+              "attribute": "mode"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "ButtonSize"
+              },
+              "default": "'m'",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "compact",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "compact"
+            },
+            {
+              "kind": "field",
+              "name": "block",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "block"
+            },
+            {
+              "kind": "field",
+              "name": "grow",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "grow"
+            },
+            {
+              "kind": "field",
+              "name": "solid",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "solid"
+            },
+            {
+              "kind": "field",
+              "name": "active",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "active"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled"
+            },
+            {
+              "kind": "method",
+              "name": "hostClassNames",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            },
+            {
+              "name": "mode",
+              "type": {
+                "text": "ButtonMode"
+              },
+              "default": "'default'",
+              "fieldName": "mode"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "ButtonSize"
+              },
+              "default": "'m'",
+              "fieldName": "size"
+            },
+            {
+              "name": "compact",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "compact"
+            },
+            {
+              "name": "block",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "block"
+            },
+            {
+              "name": "grow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "grow"
+            },
+            {
+              "name": "solid",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "solid"
+            },
+            {
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "active"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CButton",
+          "declaration": {
+            "name": "CButton",
+            "module": "src/shared/ui/components/cButton.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-button",
+          "declaration": {
+            "name": "CButton",
+            "module": "src/shared/ui/components/cButton.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cCameraView.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A live camera picture of 16:9 that keeps its place while the page around it is redrawn: `<c-camera-view mirrored></c-camera-view>`.\nThe scanner writes the stream into `video`; `mirrored` flips the picture like a mirror, the way a front camera is expected to look.",
+          "name": "CCameraView",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mirrored",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "mirrored"
+            },
+            {
+              "kind": "field",
+              "name": "video",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "hostClassNames",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "playsInline",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "muted",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "className",
+              "type": {
+                "text": "string"
+              },
+              "default": "'h-full w-full object-cover'"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mirrored",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "mirrored"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-camera-view",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CCameraView",
+          "declaration": {
+            "name": "CCameraView",
+            "module": "src/shared/ui/components/cCameraView.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-camera-view",
+          "declaration": {
+            "name": "CCameraView",
+            "module": "src/shared/ui/components/cCameraView.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cCatPreviewCard.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Card of one lobby slot with the cat view: `<c-cat-preview-card variant=\"player\" color=\"#e0533d\">\n<c-player-tag>…</c-player-tag> <c-preview-frame>…</c-preview-frame> …</c-cat-preview-card>`.\n`color` sets the border of a player card.",
+          "name": "CCatPreviewCard",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "privacy": "public",
+              "type": {
+                "text": "CatCardVariant"
+              },
+              "default": "'player'",
+              "attribute": "variant"
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "color"
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "CatCardVariant"
+              },
+              "default": "'player'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "color"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-cat-preview-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CCatPreviewCard",
+          "declaration": {
+            "name": "CCatPreviewCard",
+            "module": "src/shared/ui/components/cCatPreviewCard.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-cat-preview-card",
+          "declaration": {
+            "name": "CCatPreviewCard",
+            "module": "src/shared/ui/components/cCatPreviewCard.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cCheckbox.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`<c-checkbox label=\"Ton\" ?checked=${on}></c-checkbox>`; the native `change` event bubbles up.",
+          "name": "CCheckbox",
+          "members": [
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "checked"
+            },
+            {
+              "kind": "field",
+              "name": "onChange",
+              "privacy": "private",
+              "readonly": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            },
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "checked"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-checkbox",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CCheckbox",
+          "declaration": {
+            "name": "CCheckbox",
+            "module": "src/shared/ui/components/cCheckbox.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-checkbox",
+          "declaration": {
+            "name": "CCheckbox",
+            "module": "src/shared/ui/components/cCheckbox.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cChip.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Small status label: `<c-chip mode=\"success\">Bereit</c-chip>`. `mode=\"color\"` paints it in\n`color` (a player colour); `dim` fades it, `outlined` adds a ring (e.g. a locked-in vote).",
+          "name": "CChip",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "privacy": "public",
+              "type": {
+                "text": "ChipMode"
+              },
+              "default": "'default'",
+              "attribute": "mode"
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "color"
+            },
+            {
+              "kind": "field",
+              "name": "dim",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "dim"
+            },
+            {
+              "kind": "field",
+              "name": "outlined",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "outlined"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "ChipSize"
+              },
+              "default": "'m'",
+              "attribute": "size"
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "type": {
+                "text": "ChipMode"
+              },
+              "default": "'default'",
+              "fieldName": "mode"
+            },
+            {
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "color"
+            },
+            {
+              "name": "dim",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "dim"
+            },
+            {
+              "name": "outlined",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "outlined"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "ChipSize"
+              },
+              "default": "'m'",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-chip",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CChip",
+          "declaration": {
+            "name": "CChip",
+            "module": "src/shared/ui/components/cChip.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-chip",
+          "declaration": {
+            "name": "CChip",
+            "module": "src/shared/ui/components/cChip.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cControlsGuide.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Drawn gamepad overview: `<c-controls-guide></c-controls-guide>`.",
+          "name": "CControlsGuide",
+          "members": [],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-controls-guide",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CControlsGuide",
+          "declaration": {
+            "name": "CControlsGuide",
+            "module": "src/shared/ui/components/cControlsGuide.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-controls-guide",
+          "declaration": {
+            "name": "CControlsGuide",
+            "module": "src/shared/ui/components/cControlsGuide.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cDpad.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "The same cross on every phone screen that is not the race: four arrows around a round OK. Keys that do nothing on the\ncurrent screen stay where they are but are dimmed and disabled, so the thumb always finds the same place.\n`<c-dpad up=\"on\" down=\"on\" left=\"dim\" right=\"dim\" ok=\"on\" ok-label=\"Zurück\"></c-dpad>`. The buttons have the ids\n`pad-up`, `pad-down`, `pad-left`, `pad-right` and `pad-ok`; the controller script binds them by screen.",
+          "name": "CDpad",
+          "members": [
+            {
+              "kind": "field",
+              "name": "up",
+              "privacy": "public",
+              "type": {
+                "text": "DpadKeyState"
+              },
+              "attribute": "up"
+            },
+            {
+              "kind": "field",
+              "name": "down",
+              "privacy": "public",
+              "type": {
+                "text": "DpadKeyState"
+              },
+              "attribute": "down"
+            },
+            {
+              "kind": "field",
+              "name": "left",
+              "privacy": "public",
+              "type": {
+                "text": "DpadKeyState"
+              },
+              "attribute": "left"
+            },
+            {
+              "kind": "field",
+              "name": "right",
+              "privacy": "public",
+              "type": {
+                "text": "DpadKeyState"
+              },
+              "attribute": "right"
+            },
+            {
+              "kind": "field",
+              "name": "ok",
+              "privacy": "public",
+              "type": {
+                "text": "DpadKeyState"
+              },
+              "attribute": "ok"
+            },
+            {
+              "kind": "field",
+              "name": "okLabel",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "'OK'",
+              "attribute": "ok-label"
+            },
+            {
+              "kind": "method",
+              "name": "hostClassNames",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "key",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "id",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "symbol",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "state",
+                  "type": {
+                    "text": "DpadKeyState"
+                  }
+                },
+                {
+                  "name": "classes",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "up",
+              "type": {
+                "text": "DpadKeyState"
+              },
+              "fieldName": "up"
+            },
+            {
+              "name": "down",
+              "type": {
+                "text": "DpadKeyState"
+              },
+              "fieldName": "down"
+            },
+            {
+              "name": "left",
+              "type": {
+                "text": "DpadKeyState"
+              },
+              "fieldName": "left"
+            },
+            {
+              "name": "right",
+              "type": {
+                "text": "DpadKeyState"
+              },
+              "fieldName": "right"
+            },
+            {
+              "name": "ok",
+              "type": {
+                "text": "DpadKeyState"
+              },
+              "fieldName": "ok"
+            },
+            {
+              "name": "ok-label",
+              "type": {
+                "text": "string"
+              },
+              "default": "'OK'",
+              "fieldName": "okLabel"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-dpad",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CDpad",
+          "declaration": {
+            "name": "CDpad",
+            "module": "src/shared/ui/components/cDpad.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-dpad",
+          "declaration": {
+            "name": "CDpad",
+            "module": "src/shared/ui/components/cDpad.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cHeader.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "`<c-header level=\"2\">Titel</c-header>`; level 1 (the default) is the largest, `tone=\"muted\"`\ngreys it out (e.g. an empty slot).",
+          "name": "CHeader",
+          "members": [
+            {
+              "kind": "field",
+              "name": "level",
+              "privacy": "public",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "attribute": "level"
+            },
+            {
+              "kind": "field",
+              "name": "tone",
+              "privacy": "public",
+              "type": {
+                "text": "'default' | 'muted'"
+              },
+              "default": "'default'",
+              "attribute": "tone"
+            },
+            {
+              "kind": "method",
+              "name": "clampedLevel",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "number"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "hostAttributes",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "Readonly<Record<string, string>>"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "level",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "fieldName": "level"
+            },
+            {
+              "name": "tone",
+              "type": {
+                "text": "'default' | 'muted'"
+              },
+              "default": "'default'",
+              "fieldName": "tone"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-header",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CHeader",
+          "declaration": {
+            "name": "CHeader",
+            "module": "src/shared/ui/components/cHeader.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-header",
+          "declaration": {
+            "name": "CHeader",
+            "module": "src/shared/ui/components/cHeader.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cHud.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Container of the race HUD in the top left corner; on phone widths it spans the full width.",
+          "name": "CHud",
+          "members": [
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-hud",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CHud",
+          "declaration": {
+            "name": "CHud",
+            "module": "src/shared/ui/components/cHud.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-hud",
+          "declaration": {
+            "name": "CHud",
+            "module": "src/shared/ui/components/cHud.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cHudCard.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Race status of one player: `<c-hud-card color=\"#e0533d\" place=\"1/4\" status=\"Runde 1/3\" item=\"Haarball\"\n.notes=${['→ Start/Ziel']}></c-hud-card>`.",
+          "name": "CHudCard",
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "color"
+            },
+            {
+              "kind": "field",
+              "name": "place",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "place"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "status"
+            },
+            {
+              "kind": "field",
+              "name": "item",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "item"
+            },
+            {
+              "kind": "field",
+              "name": "notes",
+              "privacy": "public",
+              "type": {
+                "text": "readonly string[]"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "penalty",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "penalty"
+            },
+            {
+              "kind": "method",
+              "name": "hostClassNames",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "renderChip",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "TemplateResult | typeof nothing"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "text",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "color"
+            },
+            {
+              "name": "place",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "place"
+            },
+            {
+              "name": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "status"
+            },
+            {
+              "name": "item",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "item"
+            },
+            {
+              "name": "penalty",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "penalty"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-hud-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CHudCard",
+          "declaration": {
+            "name": "CHudCard",
+            "module": "src/shared/ui/components/cHudCard.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-hud-card",
+          "declaration": {
+            "name": "CHudCard",
+            "module": "src/shared/ui/components/cHudCard.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cHudTimer.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Time box of the HUD: `<c-hud-timer>0:03.22</c-hud-timer>`; `mode=\"alert\"` is the red finish countdown.",
+          "name": "CHudTimer",
+          "members": [
+            {
+              "kind": "field",
+              "name": "mode",
+              "privacy": "public",
+              "type": {
+                "text": "HudTimerMode"
+              },
+              "default": "'default'",
+              "attribute": "mode"
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "mode",
+              "type": {
+                "text": "HudTimerMode"
+              },
+              "default": "'default'",
+              "fieldName": "mode"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-hud-timer",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CHudTimer",
+          "declaration": {
+            "name": "CHudTimer",
+            "module": "src/shared/ui/components/cHudTimer.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-hud-timer",
+          "declaration": {
+            "name": "CHudTimer",
+            "module": "src/shared/ui/components/cHudTimer.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cList.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "List of rows or cards: `<c-list direction=\"row\" gap=\"m\">…</c-list>`; `inset` pads it inside a\ncard, `align=\"center\"` centres mixed children vertically, `reserve` keeps room for one\nline even when empty.",
+          "name": "CList",
+          "members": [
+            {
+              "kind": "field",
+              "name": "direction",
+              "privacy": "public",
+              "type": {
+                "text": "ListDirection"
+              },
+              "default": "'column'",
+              "attribute": "direction"
+            },
+            {
+              "kind": "field",
+              "name": "gap",
+              "privacy": "public",
+              "type": {
+                "text": "ListGap"
+              },
+              "default": "'s'",
+              "attribute": "gap"
+            },
+            {
+              "kind": "field",
+              "name": "inset",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "inset"
+            },
+            {
+              "kind": "field",
+              "name": "align",
+              "privacy": "public",
+              "type": {
+                "text": "'start' | 'center'"
+              },
+              "default": "'start'",
+              "attribute": "align"
+            },
+            {
+              "kind": "field",
+              "name": "reserve",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "reserve"
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "hostAttributes",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "Readonly<Record<string, string>>"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "direction",
+              "type": {
+                "text": "ListDirection"
+              },
+              "default": "'column'",
+              "fieldName": "direction"
+            },
+            {
+              "name": "gap",
+              "type": {
+                "text": "ListGap"
+              },
+              "default": "'s'",
+              "fieldName": "gap"
+            },
+            {
+              "name": "inset",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "inset"
+            },
+            {
+              "name": "align",
+              "type": {
+                "text": "'start' | 'center'"
+              },
+              "default": "'start'",
+              "fieldName": "align"
+            },
+            {
+              "name": "reserve",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "reserve"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-list",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CList",
+          "declaration": {
+            "name": "CList",
+            "module": "src/shared/ui/components/cList.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-list",
+          "declaration": {
+            "name": "CList",
+            "module": "src/shared/ui/components/cList.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cListItem.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "One row of a `<c-list>`; children are laid out left to right, the last one pushed right.\n`active` marks the keyboard/gamepad selection, `interactive` makes it clickable.",
+          "name": "CListItem",
+          "members": [
+            {
+              "kind": "field",
+              "name": "active",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "active"
+            },
+            {
+              "kind": "field",
+              "name": "interactive",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "interactive"
+            },
+            {
+              "kind": "field",
+              "name": "boxed",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "boxed"
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "hostAttributes",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "Readonly<Record<string, string>>"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "active"
+            },
+            {
+              "name": "interactive",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "interactive"
+            },
+            {
+              "name": "boxed",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "boxed"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-list-item",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CListItem",
+          "declaration": {
+            "name": "CListItem",
+            "module": "src/shared/ui/components/cListItem.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-list-item",
+          "declaration": {
+            "name": "CListItem",
+            "module": "src/shared/ui/components/cListItem.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cLoadingScreen.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Full-screen loading screen with a cat kart driving on the spot: `<c-loading-screen\nlabel=\"Naturpfad wird geladen\" tip=\"…\"></c-loading-screen>`. `leaving` fades it out.",
+          "name": "CLoadingScreen",
+          "members": [
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Lädt …'",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "tip",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "tip"
+            },
+            {
+              "kind": "field",
+              "name": "leaving",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "leaving",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "contained",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "contained"
+            },
+            {
+              "kind": "method",
+              "name": "hostClassNames",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Lädt …'",
+              "fieldName": "label"
+            },
+            {
+              "name": "tip",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "tip"
+            },
+            {
+              "name": "leaving",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "leaving"
+            },
+            {
+              "name": "contained",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "contained"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-loading-screen",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CLoadingScreen",
+          "declaration": {
+            "name": "CLoadingScreen",
+            "module": "src/shared/ui/components/cLoadingScreen.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-loading-screen",
+          "declaration": {
+            "name": "CLoadingScreen",
+            "module": "src/shared/ui/components/cLoadingScreen.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cMapVoteCard.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Card of the map vote: `<c-map-vote-card><c-preview-frame …/><c-header level=\"3\">Name</c-header>\n<c-list …>markers</c-list></c-map-vote-card>`.",
+          "name": "CMapVoteCard",
+          "members": [
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-map-vote-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CMapVoteCard",
+          "declaration": {
+            "name": "CMapVoteCard",
+            "module": "src/shared/ui/components/cMapVoteCard.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-map-vote-card",
+          "declaration": {
+            "name": "CMapVoteCard",
+            "module": "src/shared/ui/components/cMapVoteCard.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cMemoryCard.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "One card of the memory board: `<c-memory-card face=\"🐟\" label=\"Fisch\" state=\"open\" cursor=\"#e0533d\"></c-memory-card>`; `cursor` is the colour of the\nplayer who points at it (empty for nobody). A face down card shows a question mark and never its face.",
+          "name": "CMemoryCard",
+          "members": [
+            {
+              "kind": "field",
+              "name": "face",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "face"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "state",
+              "privacy": "public",
+              "type": {
+                "text": "MemoryCardState"
+              },
+              "default": "'hidden'",
+              "attribute": "state"
+            },
+            {
+              "kind": "field",
+              "name": "cursor",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "cursor"
+            },
+            {
+              "kind": "method",
+              "name": "hostClassNames",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "face",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "face"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            },
+            {
+              "name": "state",
+              "type": {
+                "text": "MemoryCardState"
+              },
+              "default": "'hidden'",
+              "fieldName": "state"
+            },
+            {
+              "name": "cursor",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "cursor"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-memory-card",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CMemoryCard",
+          "declaration": {
+            "name": "CMemoryCard",
+            "module": "src/shared/ui/components/cMemoryCard.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-memory-card",
+          "declaration": {
+            "name": "CMemoryCard",
+            "module": "src/shared/ui/components/cMemoryCard.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cModal.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Dimmed full-viewport layer that centres its content above the page: `<c-modal><c-panel>…</c-panel></c-modal>`.",
+          "name": "CModal",
+          "members": [
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-modal",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CModal",
+          "declaration": {
+            "name": "CModal",
+            "module": "src/shared/ui/components/cModal.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-modal",
+          "declaration": {
+            "name": "CModal",
+            "module": "src/shared/ui/components/cModal.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cPanel.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Boxed surface for grouped content, e.g. inside a modal: `<c-panel>…</c-panel>`.",
+          "name": "CPanel",
+          "members": [
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-panel",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CPanel",
+          "declaration": {
+            "name": "CPanel",
+            "module": "src/shared/ui/components/cPanel.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-panel",
+          "declaration": {
+            "name": "CPanel",
+            "module": "src/shared/ui/components/cPanel.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cPerfReadout.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Frame rate in the bottom left corner, always on top: `<c-perf-readout headline=\"24 FPS\" tone=\"slow\"></c-perf-readout>`.\n`tone=\"slow\"` marks a frame rate below the target; the numbers carry the meaning, the colour only underlines it.",
+          "name": "CPerfReadout",
+          "members": [
+            {
+              "kind": "field",
+              "name": "headline",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "headline"
+            },
+            {
+              "kind": "field",
+              "name": "tone",
+              "privacy": "public",
+              "type": {
+                "text": "PerfTone"
+              },
+              "default": "'smooth'",
+              "attribute": "tone"
+            },
+            {
+              "kind": "method",
+              "name": "hostClassNames",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "headline",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "headline"
+            },
+            {
+              "name": "tone",
+              "type": {
+                "text": "PerfTone"
+              },
+              "default": "'smooth'",
+              "fieldName": "tone"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-perf-readout",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CPerfReadout",
+          "declaration": {
+            "name": "CPerfReadout",
+            "module": "src/shared/ui/components/cPerfReadout.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-perf-readout",
+          "declaration": {
+            "name": "CPerfReadout",
+            "module": "src/shared/ui/components/cPerfReadout.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cPlayerTag.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Coloured label bar at the top of a player's card: `<c-player-tag color=\"#e0533d\">Rußpfote</c-player-tag>`.\n`selected` marks it as the row the cursor is on: the name can then be changed with left/right.",
+          "name": "CPlayerTag",
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "'#a5a5b5'",
+              "attribute": "color"
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "selected"
+            },
+            {
+              "kind": "method",
+              "name": "stateClasses",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "default": "'#a5a5b5'",
+              "fieldName": "color"
+            },
+            {
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "selected"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-player-tag",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CPlayerTag",
+          "declaration": {
+            "name": "CPlayerTag",
+            "module": "src/shared/ui/components/cPlayerTag.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-player-tag",
+          "declaration": {
+            "name": "CPlayerTag",
+            "module": "src/shared/ui/components/cPlayerTag.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cPreviewFrame.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Frame for a live preview canvas that the game mounts into it:\n`<c-preview-frame size=\"map\" data-map-preview-index=\"0\"></c-preview-frame>`.",
+          "name": "CPreviewFrame",
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "PreviewFrameSize"
+              },
+              "default": "'cat'",
+              "attribute": "size"
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "type": {
+                "text": "PreviewFrameSize"
+              },
+              "default": "'cat'",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-preview-frame",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CPreviewFrame",
+          "declaration": {
+            "name": "CPreviewFrame",
+            "module": "src/shared/ui/components/cPreviewFrame.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-preview-frame",
+          "declaration": {
+            "name": "CPreviewFrame",
+            "module": "src/shared/ui/components/cPreviewFrame.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cQrCode.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "qrModulePath",
+          "return": {
+            "type": {
+              "text": "{ readonly path: string; readonly size: number }"
+            }
+          },
+          "parameters": [
+            {
+              "name": "text",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "description": "Black modules of the code as one SVG path, so it stays sharp at any size."
+        },
+        {
+          "kind": "class",
+          "description": "A QR code, always black on white with its quiet zone (cameras need it): `<c-qr-code value=\"…\" label=\"…\"></c-qr-code>`.\nIt fills the width of its parent up to 22rem and stays square; `large` lets it use half the screen height instead of 40 percent.",
+          "name": "CQrCode",
+          "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "'QR-Code'",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "large",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "large"
+            },
+            {
+              "kind": "method",
+              "name": "hostClassNames",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "'QR-Code'",
+              "fieldName": "label"
+            },
+            {
+              "name": "large",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "large"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-qr-code",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "qrModulePath",
+          "declaration": {
+            "name": "qrModulePath",
+            "module": "src/shared/ui/components/cQrCode.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "CQrCode",
+          "declaration": {
+            "name": "CQrCode",
+            "module": "src/shared/ui/components/cQrCode.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-qr-code",
+          "declaration": {
+            "name": "CQrCode",
+            "module": "src/shared/ui/components/cQrCode.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cResultRow.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "One line of the result table: place, cat name in its player colour, finish time and the points (this game and the total).",
+          "name": "CResultRow",
+          "members": [
+            {
+              "kind": "field",
+              "name": "place",
+              "privacy": "public",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "attribute": "place"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "color",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "color"
+            },
+            {
+              "kind": "field",
+              "name": "time",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "'—'",
+              "attribute": "time"
+            },
+            {
+              "kind": "field",
+              "name": "score",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "score"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "place",
+              "type": {
+                "text": "number"
+              },
+              "default": "1",
+              "fieldName": "place"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "name"
+            },
+            {
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "color"
+            },
+            {
+              "name": "time",
+              "type": {
+                "text": "string"
+              },
+              "default": "'—'",
+              "fieldName": "time"
+            },
+            {
+              "name": "score",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "score"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-result-row",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CResultRow",
+          "declaration": {
+            "name": "CResultRow",
+            "module": "src/shared/ui/components/cResultRow.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-result-row",
+          "declaration": {
+            "name": "CResultRow",
+            "module": "src/shared/ui/components/cResultRow.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cScreen.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Full-screen overlay surface that centres its children (and scrolls when they are taller than the screen): `<c-screen tone=\"solid\">…</c-screen>`;\n`enter` flies it in when it appears.",
+          "name": "CScreen",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tone",
+              "privacy": "public",
+              "type": {
+                "text": "ScreenTone"
+              },
+              "default": "'dim'",
+              "attribute": "tone"
+            },
+            {
+              "kind": "field",
+              "name": "enter",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "enter"
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "tone",
+              "type": {
+                "text": "ScreenTone"
+              },
+              "default": "'dim'",
+              "fieldName": "tone"
+            },
+            {
+              "name": "enter",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "enter"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-screen",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CScreen",
+          "declaration": {
+            "name": "CScreen",
+            "module": "src/shared/ui/components/cScreen.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-screen",
+          "declaration": {
+            "name": "CScreen",
+            "module": "src/shared/ui/components/cScreen.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cScroll.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Scrollable, left-aligned area for long content inside a menu: `<c-scroll>…</c-scroll>`. The scrollbar is always\nvisible so that cut-off content shows there is more to scroll to.",
+          "name": "CScroll",
+          "members": [
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-scroll",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CScroll",
+          "declaration": {
+            "name": "CScroll",
+            "module": "src/shared/ui/components/cScroll.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-scroll",
+          "declaration": {
+            "name": "CScroll",
+            "module": "src/shared/ui/components/cScroll.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cSettingRow.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "One selectable setting in a card: label on the left, value (optionally with colour swatches)\non the right, and ◀/▶ arrows while it is the active row.\n`<c-setting-row label=\"Fellfarbe\" value=\"Schwarz\" .swatches=${['#000']} active></c-setting-row>`",
+          "name": "CSettingRow",
+          "members": [
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "swatches",
+              "privacy": "public",
+              "type": {
+                "text": "readonly string[]"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "active",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "arrow",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "TemplateResult | typeof nothing"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "direction",
+                  "type": {
+                    "text": "'left' | 'right'"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            },
+            {
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "active"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-setting-row",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CSettingRow",
+          "declaration": {
+            "name": "CSettingRow",
+            "module": "src/shared/ui/components/cSettingRow.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-setting-row",
+          "declaration": {
+            "name": "CSettingRow",
+            "module": "src/shared/ui/components/cSettingRow.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cStack.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Layout primitive that lines its children up: `<c-stack direction=\"row\" gap=\"m\" align=\"center\">…</c-stack>`.\n`grow` takes the free space of its parent, `fill` the whole viewport, `narrow` a phone-width column, `wrap` lets the children flow onto the next line,\n`adapt` changes the layout with the orientation (`rowInLandscape`, `columnInPortrait`, `centerInPortrait`,\n`tightInPortrait`). `fill` follows the visible height of a phone browser (dvh), not the one behind its toolbars.",
+          "name": "CStack",
+          "members": [
+            {
+              "kind": "field",
+              "name": "direction",
+              "privacy": "public",
+              "type": {
+                "text": "StackDirection"
+              },
+              "default": "'column'",
+              "attribute": "direction"
+            },
+            {
+              "kind": "field",
+              "name": "gap",
+              "privacy": "public",
+              "type": {
+                "text": "StackGap"
+              },
+              "default": "'none'",
+              "attribute": "gap"
+            },
+            {
+              "kind": "field",
+              "name": "align",
+              "privacy": "public",
+              "type": {
+                "text": "StackAlign"
+              },
+              "default": "'stretch'",
+              "attribute": "align"
+            },
+            {
+              "kind": "field",
+              "name": "justify",
+              "privacy": "public",
+              "type": {
+                "text": "StackJustify"
+              },
+              "default": "'start'",
+              "attribute": "justify"
+            },
+            {
+              "kind": "field",
+              "name": "padding",
+              "privacy": "public",
+              "type": {
+                "text": "StackPadding"
+              },
+              "default": "'none'",
+              "attribute": "padding"
+            },
+            {
+              "kind": "field",
+              "name": "grow",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "grow"
+            },
+            {
+              "kind": "field",
+              "name": "fill",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "fill"
+            },
+            {
+              "kind": "field",
+              "name": "narrow",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "narrow"
+            },
+            {
+              "kind": "field",
+              "name": "wrap",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "wrap"
+            },
+            {
+              "kind": "field",
+              "name": "adapt",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "adapt"
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "direction",
+              "type": {
+                "text": "StackDirection"
+              },
+              "default": "'column'",
+              "fieldName": "direction"
+            },
+            {
+              "name": "gap",
+              "type": {
+                "text": "StackGap"
+              },
+              "default": "'none'",
+              "fieldName": "gap"
+            },
+            {
+              "name": "align",
+              "type": {
+                "text": "StackAlign"
+              },
+              "default": "'stretch'",
+              "fieldName": "align"
+            },
+            {
+              "name": "justify",
+              "type": {
+                "text": "StackJustify"
+              },
+              "default": "'start'",
+              "fieldName": "justify"
+            },
+            {
+              "name": "padding",
+              "type": {
+                "text": "StackPadding"
+              },
+              "default": "'none'",
+              "fieldName": "padding"
+            },
+            {
+              "name": "grow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "grow"
+            },
+            {
+              "name": "fill",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "fill"
+            },
+            {
+              "name": "narrow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "narrow"
+            },
+            {
+              "name": "wrap",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "wrap"
+            },
+            {
+              "name": "adapt",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "adapt"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-stack",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CStack",
+          "declaration": {
+            "name": "CStack",
+            "module": "src/shared/ui/components/cStack.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-stack",
+          "declaration": {
+            "name": "CStack",
+            "module": "src/shared/ui/components/cStack.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cStartCountdown.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Big centred \"3\", \"2\", \"1\", \"Los!\" before the race: `<c-start-countdown>3</c-start-countdown>`.",
+          "name": "CStartCountdown",
+          "members": [
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-start-countdown",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CStartCountdown",
+          "declaration": {
+            "name": "CStartCountdown",
+            "module": "src/shared/ui/components/cStartCountdown.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-start-countdown",
+          "declaration": {
+            "name": "CStartCountdown",
+            "module": "src/shared/ui/components/cStartCountdown.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cStatBars.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Small comparison bars in two columns, e.g. the driving values of a kart:\n`<c-stat-bars .bars=${[{ label: 'Tempo', ratio: 0.6 }]}></c-stat-bars>`",
+          "name": "CStatBars",
+          "members": [
+            {
+              "kind": "field",
+              "name": "bars",
+              "privacy": "public",
+              "type": {
+                "text": "readonly StatBarValue[]"
+              },
+              "default": "[]"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-stat-bars",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CStatBars",
+          "declaration": {
+            "name": "CStatBars",
+            "module": "src/shared/ui/components/cStatBars.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-stat-bars",
+          "declaration": {
+            "name": "CStatBars",
+            "module": "src/shared/ui/components/cStatBars.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cStickPad.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Touch stick area of the phone controller. The controller script drives `#stick-knob` and\n`#stick-line`, grabs fingers on `#stick-zone` and measures `#stick-base`; the knob and line take\nthe player colour from the page's `--player-color`.",
+          "name": "CStickPad",
+          "members": [
+            {
+              "kind": "method",
+              "name": "hostClassNames",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-stick-pad",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CStickPad",
+          "declaration": {
+            "name": "CStickPad",
+            "module": "src/shared/ui/components/cStickPad.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-stick-pad",
+          "declaration": {
+            "name": "CStickPad",
+            "module": "src/shared/ui/components/cStickPad.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cText.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Paragraph text: `<c-text tone=\"muted\" size=\"s\">…</c-text>`; `relaxed` adds line spacing for\nmulti-line explanations, `measure=\"prose\"` limits the line length. Links inside are styled too.",
+          "name": "CText",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tone",
+              "privacy": "public",
+              "type": {
+                "text": "TextTone"
+              },
+              "default": "'default'",
+              "attribute": "tone"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "TextSize"
+              },
+              "default": "'m'",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "relaxed",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "relaxed"
+            },
+            {
+              "kind": "field",
+              "name": "measure",
+              "privacy": "public",
+              "type": {
+                "text": "TextMeasure"
+              },
+              "default": "'full'",
+              "attribute": "measure"
+            },
+            {
+              "kind": "method",
+              "name": "hostClasses",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "tone",
+              "type": {
+                "text": "TextTone"
+              },
+              "default": "'default'",
+              "fieldName": "tone"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "TextSize"
+              },
+              "default": "'m'",
+              "fieldName": "size"
+            },
+            {
+              "name": "relaxed",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "relaxed"
+            },
+            {
+              "name": "measure",
+              "type": {
+                "text": "TextMeasure"
+              },
+              "default": "'full'",
+              "fieldName": "measure"
+            }
+          ],
+          "superclass": {
+            "name": "CHostComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-text",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CText",
+          "declaration": {
+            "name": "CText",
+            "module": "src/shared/ui/components/cText.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-text",
+          "declaration": {
+            "name": "CText",
+            "module": "src/shared/ui/components/cText.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/shared/ui/components/cTouchButton.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Big touch button of the phone controller: `<c-touch-button kind=\"action\" mode=\"warn\" size=\"l\"\nlabel=\"Drift\"></c-touch-button>`. `kind` is the shape: arrow keys, round action buttons or the\nsmall round system buttons, `ok` the round confirm button in the middle of the arrows. `aria` sets the accessible name for icon-only labels.",
+          "name": "CTouchButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "kind",
+              "privacy": "public",
+              "type": {
+                "text": "TouchKind"
+              },
+              "default": "'action'",
+              "attribute": "kind"
+            },
+            {
+              "kind": "field",
+              "name": "mode",
+              "privacy": "public",
+              "type": {
+                "text": "TouchMode"
+              },
+              "default": "'default'",
+              "attribute": "mode"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "privacy": "public",
+              "type": {
+                "text": "TouchSize"
+              },
+              "default": "'m'",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "aria",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "aria"
+            },
+            {
+              "kind": "method",
+              "name": "classes",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "label"
+            },
+            {
+              "name": "kind",
+              "type": {
+                "text": "TouchKind"
+              },
+              "default": "'action'",
+              "fieldName": "kind"
+            },
+            {
+              "name": "mode",
+              "type": {
+                "text": "TouchMode"
+              },
+              "default": "'default'",
+              "fieldName": "mode"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "TouchSize"
+              },
+              "default": "'m'",
+              "fieldName": "size"
+            },
+            {
+              "name": "aria",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "aria"
+            }
+          ],
+          "superclass": {
+            "name": "CComponent",
+            "module": "/src/shared/ui/components/base"
+          },
+          "tagName": "c-touch-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "CTouchButton",
+          "declaration": {
+            "name": "CTouchButton",
+            "module": "src/shared/ui/components/cTouchButton.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "c-touch-button",
+          "declaration": {
+            "name": "CTouchButton",
+            "module": "src/shared/ui/components/cTouchButton.ts"
+          }
+        }
+      ]
+    }
+  ]
+}

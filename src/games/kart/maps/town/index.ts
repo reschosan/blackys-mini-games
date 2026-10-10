@@ -1,0 +1,1 @@
+export { TOWN } from './map';

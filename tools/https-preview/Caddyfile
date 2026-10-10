@@ -1,0 +1,12 @@
+{
+	local_certs
+	skip_install_trust
+	auto_https disable_redirects
+	default_sni {$HOST_ADDRESS}
+}
+
+https://{$HOST_ADDRESS}:8745, https://{$HOST_NAME}:8745, https://{$HOST_NAME}.local:8745 {
+	tls internal
+	root * /srv
+	file_server
+}

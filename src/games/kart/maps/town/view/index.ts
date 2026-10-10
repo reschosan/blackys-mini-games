@@ -1,0 +1,1 @@
+export { createTownView } from './townView';

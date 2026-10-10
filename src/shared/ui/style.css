@@ -1,0 +1,204 @@
+/* All sizes are rem, so scaling the root font scales the whole UI to the window: full size (16px) from
+   1000px height and 1100px width upwards, smaller below, never under 55 percent. */
+html {
+  font-size: clamp(8.8px, min(1.6vh, 1.4545vw), 16px);
+}
+
+/* A phone (shorter side under 600px) gets a larger minimum, so text stays readable; content that
+   no longer fits scrolls instead of shrinking further. */
+html[data-screen-size='S'] {
+  font-size: clamp(11px, min(2.9vh, 3.2vw), 14px);
+}
+
+/* `vh` is the height WITHOUT the browser's own bars on phones and tablets (iPad Safari): the bottom of the page then lies behind
+   them and cannot be scrolled to. `dvh` is the height that is really visible; older browsers keep the `vh` lines above. */
+@supports (height: 100dvh) {
+  html {
+    font-size: clamp(8.8px, min(1.6dvh, 1.4545vw), 16px);
+  }
+
+  html[data-screen-size='S'] {
+    font-size: clamp(11px, min(2.9dvh, 3.2vw), 14px);
+  }
+}
+
+body {
+  background: #101014;
+  color: #f2f2f2;
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+}
+
+#app {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+#game-area {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+#game-canvas {
+  touch-action: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* On-screen controls. Over the picture they float above the game and only their keys take touches (race with the
+   "over the picture" layout); otherwise they have their own half next to the picture: below it upright, to its right
+   sideways. Lobby and menus always dock, so the cross never covers what the player has to read. */
+#touch-controls {
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#touch-controls[hidden] {
+  display: none;
+}
+
+#app[data-touch-dock='overlay'] #touch-controls {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#app[data-touch-dock='overlay'] #touch-controls :is(button, #stick-zone) {
+  pointer-events: auto;
+}
+
+#app[data-touch-dock='split'] {
+  flex-direction: column;
+}
+#app[data-touch-dock='split'] #game-area {
+  flex: 1 1 55%;
+}
+
+#app[data-touch-dock='split'] #touch-controls {
+  position: relative;
+  flex: 1 1 45%;
+  min-height: 0;
+  background: #101014;
+}
+
+@media (orientation: landscape) {
+  #app[data-touch-dock='split'] {
+    flex-direction: row;
+  }
+  #app[data-touch-dock='split'] #game-area {
+    flex: 1 1 50%;
+  }
+  #app[data-touch-dock='split'] #touch-controls {
+    flex: 1 1 50%;
+  }
+}
+
+/* Only a phone needs the cross: on a bigger screen the rows, arrows and cards of the lobby and the menus can be tapped directly. */
+html:not([data-screen-size='S']) #dpad {
+  display: none;
+}
+
+/* A guest phone has no rows to tap, so its cross stays on every screen size. */
+html[data-guest] #dpad {
+  display: block;
+}
+
+/* On a bigger screen the split half has a fixed size instead of taking half of the screen. */
+html:not([data-screen-size='S']) #app[data-touch-dock='split'] #touch-controls {
+  flex: 0 0 26rem;
+}
+
+@media (orientation: landscape) {
+  html:not([data-screen-size='S']) #app[data-touch-dock='split'] #game-area {
+    flex: 1 1 0;
+  }
+  html:not([data-screen-size='S']) #app[data-touch-dock='split'] #touch-controls {
+    flex: 0 0 30rem;
+  }
+}
+
+#touch-navigation {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+#touch-navigation[hidden] {
+  display: none;
+}
+
+#btn-menu {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+#touch-driving {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0 0.75rem 0.75rem;
+}
+
+#app[data-touch-dock='split'] #touch-driving {
+  inset: 0;
+  align-items: center;
+}
+#touch-driving[hidden] {
+  display: none;
+}
+#touch-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+#touch-left c-stick-pad {
+  flex: 0 0 auto;
+  width: 10rem;
+}
+#touch-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+#action-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Pause sits above the stick, out of the way of the buttons under the right thumb. It floats over the race picture, so it and the
+   menu button get a solid backdrop and an edge to stay readable on grass, sky and the dark panel. */
+#btn-pause button,
+#btn-menu button {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(16, 16, 20, 0.78);
+  color: #f2f2f2;
+}
+
+/* With the driving controls over the picture the stick and the pause button sit in the bottom left corner: the frame rate moves up above
+   them, so it never lies on a control or on the start countdown in the middle. */
+#app[data-touch-dock='overlay']:has(#touch-controls:not([hidden]) #touch-driving:not([hidden])) c-perf-readout {
+  bottom: calc(15rem + env(safe-area-inset-bottom));
+}

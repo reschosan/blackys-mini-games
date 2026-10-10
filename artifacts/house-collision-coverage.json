@@ -1,0 +1,32 @@
+[
+  {
+    "levelId": "ground",
+    "meshCount": 13,
+    "sectionHeights": [
+      2.4,
+      6,
+      12
+    ],
+    "uncoveredReachablePoints": []
+  },
+  {
+    "levelId": "first",
+    "meshCount": 365,
+    "sectionHeights": [
+      2.4,
+      6,
+      12
+    ],
+    "uncoveredReachablePoints": []
+  },
+  {
+    "levelId": "second",
+    "meshCount": 139,
+    "sectionHeights": [
+      2.4,
+      6,
+      12
+    ],
+    "uncoveredReachablePoints": []
+  }
+]

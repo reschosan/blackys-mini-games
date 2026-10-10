@@ -1,0 +1,53 @@
+[
+  {
+    "id": "ground",
+    "source": {
+      "centreX": 3.85,
+      "floorY": -1.255,
+      "minX": 2.45,
+      "maxX": 5.3
+    },
+    "meshCount": 13,
+    "roomNames": [
+      "Wohnzimmer",
+      "Arbeitszimmer",
+      "Eingangshalle"
+    ],
+    "obstructions": [],
+    "blockedSegments": []
+  },
+  {
+    "id": "first",
+    "source": {
+      "centreX": 1.04,
+      "floorY": -0.5527,
+      "minX": -0.4,
+      "maxX": 2.45
+    },
+    "meshCount": 365,
+    "roomNames": [
+      "Treppenflur",
+      "Kueche und Esszimmer",
+      "Hobbyzimmer"
+    ],
+    "obstructions": [],
+    "blockedSegments": []
+  },
+  {
+    "id": "second",
+    "source": {
+      "centreX": -1.885,
+      "floorY": 0.11,
+      "minX": -3.3,
+      "maxX": -0.4
+    },
+    "meshCount": 139,
+    "roomNames": [
+      "Oberer Flur",
+      "Kinderzimmer",
+      "Schlafzimmer"
+    ],
+    "obstructions": [],
+    "blockedSegments": []
+  }
+]

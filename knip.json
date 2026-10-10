@@ -1,0 +1,14 @@
+{
+  "entry": [
+    "src/shared/ui/gallery.ts",
+    "src/party/join/main.ts",
+    "e2e/**/*.ts",
+    "tests/**/*.ts"
+  ],
+  "project": [
+    "src/**/*.ts"
+  ],
+  "ignoreDependencies": [
+    "tailwindcss"
+  ]
+}

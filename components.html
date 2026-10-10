@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat Kart — Components</title>
+  </head>
+  <body>
+    <c-stack gap="l" padding="l" data-testid="gallery">
+      <c-header>Components</c-header>
+      <c-text tone="muted">Overview of c-components and their variants (development only: /components.html).</c-text>
+
+      <c-header level="2">c-header</c-header>
+      <c-stack gap="xs">
+        <c-header level="1">Level 1</c-header>
+        <c-header level="2">Level 2</c-header>
+        <c-header level="3">Level 3</c-header>
+        <c-header level="4">Level 4</c-header>
+        <c-header level="5">Level 5</c-header>
+        <c-header level="6">Level 6</c-header>
+        <c-header level="4" tone="muted">Level 4, muted</c-header>
+      </c-stack>
+
+      <c-header level="2">c-button</c-header>
+      <c-stack gap="m">
+        <c-stack direction="row" gap="m" align="center" wrap>
+          <c-button label="Default s" size="s"></c-button>
+          <c-button label="Default m"></c-button>
+          <c-button label="Default l" size="l"></c-button>
+          <c-button label="Compact" compact></c-button>
+          <c-button label="Active" active></c-button>
+          <c-button label="Disabled" disabled></c-button>
+        </c-stack>
+        <c-stack direction="row" gap="m" align="center" wrap>
+          <c-button label="Success" mode="success"></c-button>
+          <c-button label="Success active" mode="success" active></c-button>
+          <c-button label="Success solid" mode="success" solid></c-button>
+          <c-button label="Cancel" mode="cancel"></c-button>
+          <c-button label="Cancel active" mode="cancel" active></c-button>
+          <c-button label="Cancel solid" mode="cancel" solid></c-button>
+        </c-stack>
+        <c-button label="Block" block></c-button>
+      </c-stack>
+
+      <c-header level="2">c-text</c-header>
+      <c-stack gap="xs">
+        <c-text>Standard m</c-text>
+        <c-text size="s">Standard s</c-text>
+        <c-text tone="soft">Soft</c-text>
+        <c-text tone="muted">Muted</c-text>
+        <c-text relaxed measure="prose">Relaxed and prose: a longer text limited to a readable line length and ending with a <a href="#">link</a>.</c-text>
+      </c-stack>
+
+      <c-header level="2">c-chip</c-header>
+      <c-stack direction="row" gap="s" align="center" wrap>
+        <c-chip>Default</c-chip>
+        <c-chip mode="success">Success</c-chip>
+        <c-chip mode="cancel">Cancel</c-chip>
+        <c-chip mode="accent">Accent</c-chip>
+        <c-chip mode="accent" size="l">Accent l</c-chip>
+        <c-chip mode="color" color="#4d94ff" dim>Color dim</c-chip>
+        <c-chip mode="color" color="#e0533d" outlined>Color ✓</c-chip>
+      </c-stack>
+
+      <c-header level="2">c-list and c-list-item</c-header>
+      <c-stack direction="row" gap="l" wrap>
+        <c-list gap="m">
+          <c-list-item>Normal</c-list-item>
+          <c-list-item active>Active</c-list-item>
+          <c-list-item interactive>Clickable</c-list-item>
+          <c-list-item boxed>Boxed</c-list-item>
+        </c-list>
+        <c-list direction="row" gap="m" align="center">
+          <c-chip>Row 1</c-chip>
+          <c-chip>Row 2</c-chip>
+        </c-list>
+      </c-stack>
+
+      <c-header level="2">Cards</c-header>
+      <c-stack direction="row" gap="m" wrap>
+        <c-cat-preview-card variant="player" color="#e0533d">
+          <c-player-tag color="#e0533d">Cat 1</c-player-tag>
+          <c-text tone="soft" size="s" measure="inset">Gamepad</c-text>
+          <c-preview-frame></c-preview-frame>
+          <c-list inset>
+            <c-setting-row label="Preset" value="Fluffy" active></c-setting-row>
+            <c-setting-row label="Pattern" value="Solid"></c-setting-row>
+            <c-button block size="s" compact label="Ready" active></c-button>
+          </c-list>
+        </c-cat-preview-card>
+        <c-cat-preview-card variant="empty">
+          <c-header level="4" tone="muted">Seat 2</c-header>
+          <c-text tone="muted" size="s">Press a gamepad button or click to join</c-text>
+        </c-cat-preview-card>
+        <c-cat-preview-card variant="ai">
+          <c-header level="4" tone="muted">Seat 3</c-header>
+          <c-text tone="soft" size="s">AI opponent</c-text>
+          <c-chip mode="success">Ready (Medium)</c-chip>
+        </c-cat-preview-card>
+        <c-map-vote-card>
+          <c-preview-frame size="track"></c-preview-frame>
+          <c-header level="3">Nature Trail</c-header>
+          <c-list direction="row" reserve>
+            <c-chip mode="color" color="#e0533d" outlined>Cat 1 ✓</c-chip>
+          </c-list>
+        </c-map-vote-card>
+      </c-stack>
+
+      <c-header level="2">Forms</c-header>
+      <c-stack gap="s">
+        <c-checkbox label="Sound" checked></c-checkbox>
+      </c-stack>
+
+      <c-header level="2">HUD</c-header>
+      <c-stack direction="row" gap="m" align="start" wrap>
+        <c-hud-card color="#e0533d" place="1/4" status="Lap 1/3" item="Hairball"></c-hud-card>
+        <c-hud-card color="#4d94ff" place="2/4" status="Lap 1/3"></c-hud-card>
+        <c-hud-timer>1:23.45</c-hud-timer>
+        <c-hud-timer mode="alert">12 s left</c-hud-timer>
+      </c-stack>
+
+      <c-header level="2">Loading screen</c-header>
+      <c-loading-screen contained label="Loading Nature Trail" tip="Drifting through turns charges a boost: the longer, the stronger."></c-loading-screen>
+
+      <c-header level="2">Results</c-header>
+      <c-list gap="m">
+        <c-result-row place="1" name="Cat 1" color="#e0533d" time="1:23.45"></c-result-row>
+        <c-result-row place="2" name="Cat 2" color="#4d94ff"></c-result-row>
+      </c-list>
+
+      <c-header level="2">Touch controls</c-header>
+      <c-stack direction="row" gap="m" align="center" wrap>
+        <c-touch-button kind="system" label="☰" aria="Menu"></c-touch-button>
+        <c-touch-button kind="arrow" label="▲" aria="Up"></c-touch-button>
+        <c-touch-button kind="action" mode="info" label="Item"></c-touch-button>
+        <c-touch-button kind="action" mode="warn" size="l" label="Drift"></c-touch-button>
+        <c-touch-button kind="action" mode="success" label="Gas"></c-touch-button>
+        <c-touch-button kind="action" mode="cancel" label="Brake"></c-touch-button>
+      </c-stack>
+
+      <c-header level="2">Other</c-header>
+      <c-stack direction="row" gap="m" align="start">
+        <c-panel>
+          <c-header level="3">c-panel</c-header>
+          <c-text tone="soft" size="s">Surface for grouped content.</c-text>
+        </c-panel>
+      </c-stack>
+      <c-stack direction="row" gap="m" align="start">
+        <c-scroll><c-text tone="soft" size="s">c-scroll: scrollable area for long content.</c-text></c-scroll>
+      </c-stack>
+      <c-controls-guide></c-controls-guide>
+    </c-stack>
+    <script type="module" src="/src/shared/ui/gallery.ts"></script>
+  </body>
+</html>

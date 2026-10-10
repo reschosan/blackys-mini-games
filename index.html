@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Cat Kart</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/src/shared/ui/style.css" />
+  </head>
+  <body>
+    <div id="app" data-touch-dock="split">
+      <div id="game-area">
+        <canvas id="game-canvas"></canvas>
+        <div id="overlay"></div>
+        <c-loading-screen id="boot-screen" label="Cat Kart is starting" tip="The cats are starting their engines …"></c-loading-screen>
+      </div>
+      <div id="touch-controls" hidden>
+        <div id="touch-navigation">
+          <c-touch-button id="btn-menu" kind="system" label="☰" aria="Settings"></c-touch-button>
+          <c-dpad id="dpad"></c-dpad>
+        </div>
+        <div id="touch-driving" hidden>
+          <div id="touch-left">
+            <c-touch-button id="btn-pause" kind="system" label="Pause" aria="Pause"></c-touch-button>
+            <c-stick-pad></c-stick-pad>
+          </div>
+          <div id="touch-actions">
+            <div id="action-row">
+              <c-touch-button id="btn-item" kind="action" mode="info" label="Item"></c-touch-button>
+              <c-touch-button id="btn-drift" kind="action" mode="warn" size="l" label="Drift"></c-touch-button>
+            </div>
+            <c-touch-button id="btn-gas" kind="action" mode="success" size="l" label="Gas" hidden></c-touch-button>
+            <c-touch-button id="btn-brake" kind="action" mode="cancel" label="Brake" hidden></c-touch-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

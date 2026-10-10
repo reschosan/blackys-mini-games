@@ -1,0 +1,943 @@
+{
+  "$schema": "https://json.schemastore.org/web-types",
+  "name": "cat-kart-components",
+  "version": "0.0.0",
+  "js-types-syntax": "typescript",
+  "description-markup": "markdown",
+  "contributions": {
+    "html": {
+      "elements": [
+        {
+          "name": "c-alert-banner",
+          "description": "Warning at the bottom of the screen: `<c-alert-banner>Gamepad getrennt</c-alert-banner>`;\n`raised` sits above a banner that is already there.",
+          "source": {
+            "module": "./src/shared/ui/components/cAlertBanner.ts",
+            "symbol": "CAlertBanner"
+          },
+          "attributes": [
+            {
+              "name": "raised",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-button",
+          "description": "`<c-button label=\"Zurück\" mode=\"cancel\" size=\"l\" compact></c-button>`; `active` marks the\noption currently selected with keyboard, gamepad or phone.",
+          "source": {
+            "module": "./src/shared/ui/components/cButton.ts",
+            "symbol": "CButton"
+          },
+          "attributes": [
+            {
+              "name": "label",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "mode",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "size",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "compact",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "block",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "grow",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "solid",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "active",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "disabled",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-camera-view",
+          "description": "A live camera picture of 16:9 that keeps its place while the page around it is redrawn: `<c-camera-view mirrored></c-camera-view>`.\nThe scanner writes the stream into `video`; `mirrored` flips the picture like a mirror, the way a front camera is expected to look.",
+          "source": {
+            "module": "./src/shared/ui/components/cCameraView.ts",
+            "symbol": "CCameraView"
+          },
+          "attributes": [
+            {
+              "name": "mirrored",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-cat-preview-card",
+          "description": "Card of one lobby slot with the cat view: `<c-cat-preview-card variant=\"player\" color=\"#e0533d\">\n<c-player-tag>…</c-player-tag> <c-preview-frame>…</c-preview-frame> …</c-cat-preview-card>`.\n`color` sets the border of a player card.",
+          "source": {
+            "module": "./src/shared/ui/components/cCatPreviewCard.ts",
+            "symbol": "CCatPreviewCard"
+          },
+          "attributes": [
+            {
+              "name": "variant",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "color",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-checkbox",
+          "description": "`<c-checkbox label=\"Ton\" ?checked=${on}></c-checkbox>`; the native `change` event bubbles up.",
+          "source": {
+            "module": "./src/shared/ui/components/cCheckbox.ts",
+            "symbol": "CCheckbox"
+          },
+          "attributes": [
+            {
+              "name": "label",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "checked",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-chip",
+          "description": "Small status label: `<c-chip mode=\"success\">Bereit</c-chip>`. `mode=\"color\"` paints it in\n`color` (a player colour); `dim` fades it, `outlined` adds a ring (e.g. a locked-in vote).",
+          "source": {
+            "module": "./src/shared/ui/components/cChip.ts",
+            "symbol": "CChip"
+          },
+          "attributes": [
+            {
+              "name": "mode",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "color",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "dim",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "outlined",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "size",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-controls-guide",
+          "description": "Drawn gamepad overview: `<c-controls-guide></c-controls-guide>`.",
+          "source": {
+            "module": "./src/shared/ui/components/cControlsGuide.ts",
+            "symbol": "CControlsGuide"
+          },
+          "attributes": []
+        },
+        {
+          "name": "c-dpad",
+          "description": "The same cross on every phone screen that is not the race: four arrows around a round OK. Keys that do nothing on the\ncurrent screen stay where they are but are dimmed and disabled, so the thumb always finds the same place.\n`<c-dpad up=\"on\" down=\"on\" left=\"dim\" right=\"dim\" ok=\"on\" ok-label=\"Zurück\"></c-dpad>`. The buttons have the ids\n`pad-up`, `pad-down`, `pad-left`, `pad-right` and `pad-ok`; the controller script binds them by screen.",
+          "source": {
+            "module": "./src/shared/ui/components/cDpad.ts",
+            "symbol": "CDpad"
+          },
+          "attributes": [
+            {
+              "name": "up",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "down",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "left",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "right",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "ok",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "ok-label",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-header",
+          "description": "`<c-header level=\"2\">Titel</c-header>`; level 1 (the default) is the largest, `tone=\"muted\"`\ngreys it out (e.g. an empty slot).",
+          "source": {
+            "module": "./src/shared/ui/components/cHeader.ts",
+            "symbol": "CHeader"
+          },
+          "attributes": [
+            {
+              "name": "level",
+              "description": "",
+              "value": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "tone",
+              "description": "",
+              "value": {
+                "type": "\"default\" | \"muted\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-hud",
+          "description": "Container of the race HUD in the top left corner; on phone widths it spans the full width.",
+          "source": {
+            "module": "./src/shared/ui/components/cHud.ts",
+            "symbol": "CHud"
+          },
+          "attributes": []
+        },
+        {
+          "name": "c-hud-card",
+          "description": "Race status of one player: `<c-hud-card color=\"#e0533d\" place=\"1/4\" status=\"Runde 1/3\" item=\"Haarball\"\n.notes=${['→ Start/Ziel']}></c-hud-card>`.",
+          "source": {
+            "module": "./src/shared/ui/components/cHudCard.ts",
+            "symbol": "CHudCard"
+          },
+          "attributes": [
+            {
+              "name": "color",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "place",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "status",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "item",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "penalty",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-hud-timer",
+          "description": "Time box of the HUD: `<c-hud-timer>0:03.22</c-hud-timer>`; `mode=\"alert\"` is the red finish countdown.",
+          "source": {
+            "module": "./src/shared/ui/components/cHudTimer.ts",
+            "symbol": "CHudTimer"
+          },
+          "attributes": [
+            {
+              "name": "mode",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-list",
+          "description": "List of rows or cards: `<c-list direction=\"row\" gap=\"m\">…</c-list>`; `inset` pads it inside a\ncard, `align=\"center\"` centres mixed children vertically, `reserve` keeps room for one\nline even when empty.",
+          "source": {
+            "module": "./src/shared/ui/components/cList.ts",
+            "symbol": "CList"
+          },
+          "attributes": [
+            {
+              "name": "direction",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "gap",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "inset",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "align",
+              "description": "",
+              "value": {
+                "type": "\"start\" | \"center\""
+              }
+            },
+            {
+              "name": "reserve",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-list-item",
+          "description": "One row of a `<c-list>`; children are laid out left to right, the last one pushed right.\n`active` marks the keyboard/gamepad selection, `interactive` makes it clickable.",
+          "source": {
+            "module": "./src/shared/ui/components/cListItem.ts",
+            "symbol": "CListItem"
+          },
+          "attributes": [
+            {
+              "name": "active",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "interactive",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "boxed",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-loading-screen",
+          "description": "Full-screen loading screen with a cat kart driving on the spot: `<c-loading-screen\nlabel=\"Naturpfad wird geladen\" tip=\"…\"></c-loading-screen>`. `leaving` fades it out.",
+          "source": {
+            "module": "./src/shared/ui/components/cLoadingScreen.ts",
+            "symbol": "CLoadingScreen"
+          },
+          "attributes": [
+            {
+              "name": "label",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "tip",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "leaving",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "contained",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-map-vote-card",
+          "description": "Card of the map vote: `<c-map-vote-card><c-preview-frame …/><c-header level=\"3\">Name</c-header>\n<c-list …>markers</c-list></c-map-vote-card>`.",
+          "source": {
+            "module": "./src/shared/ui/components/cMapVoteCard.ts",
+            "symbol": "CMapVoteCard"
+          },
+          "attributes": []
+        },
+        {
+          "name": "c-memory-card",
+          "description": "One card of the memory board: `<c-memory-card face=\"🐟\" label=\"Fisch\" state=\"open\" cursor=\"#e0533d\"></c-memory-card>`; `cursor` is the colour of the\nplayer who points at it (empty for nobody). A face down card shows a question mark and never its face.",
+          "source": {
+            "module": "./src/shared/ui/components/cMemoryCard.ts",
+            "symbol": "CMemoryCard"
+          },
+          "attributes": [
+            {
+              "name": "face",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "label",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "state",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "cursor",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-modal",
+          "description": "Dimmed full-viewport layer that centres its content above the page: `<c-modal><c-panel>…</c-panel></c-modal>`.",
+          "source": {
+            "module": "./src/shared/ui/components/cModal.ts",
+            "symbol": "CModal"
+          },
+          "attributes": []
+        },
+        {
+          "name": "c-panel",
+          "description": "Boxed surface for grouped content, e.g. inside a modal: `<c-panel>…</c-panel>`.",
+          "source": {
+            "module": "./src/shared/ui/components/cPanel.ts",
+            "symbol": "CPanel"
+          },
+          "attributes": []
+        },
+        {
+          "name": "c-perf-readout",
+          "description": "Frame rate in the bottom left corner, always on top: `<c-perf-readout headline=\"24 FPS\" tone=\"slow\"></c-perf-readout>`.\n`tone=\"slow\"` marks a frame rate below the target; the numbers carry the meaning, the colour only underlines it.",
+          "source": {
+            "module": "./src/shared/ui/components/cPerfReadout.ts",
+            "symbol": "CPerfReadout"
+          },
+          "attributes": [
+            {
+              "name": "headline",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "tone",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-player-tag",
+          "description": "Coloured label bar at the top of a player's card: `<c-player-tag color=\"#e0533d\">Rußpfote</c-player-tag>`.\n`selected` marks it as the row the cursor is on: the name can then be changed with left/right.",
+          "source": {
+            "module": "./src/shared/ui/components/cPlayerTag.ts",
+            "symbol": "CPlayerTag"
+          },
+          "attributes": [
+            {
+              "name": "color",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "selected",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-preview-frame",
+          "description": "Frame for a live preview canvas that the game mounts into it:\n`<c-preview-frame size=\"map\" data-map-preview-index=\"0\"></c-preview-frame>`.",
+          "source": {
+            "module": "./src/shared/ui/components/cPreviewFrame.ts",
+            "symbol": "CPreviewFrame"
+          },
+          "attributes": [
+            {
+              "name": "size",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-qr-code",
+          "description": "A QR code, always black on white with its quiet zone (cameras need it): `<c-qr-code value=\"…\" label=\"…\"></c-qr-code>`.\nIt fills the width of its parent up to 22rem and stays square; `large` lets it use half the screen height instead of 40 percent.",
+          "source": {
+            "module": "./src/shared/ui/components/cQrCode.ts",
+            "symbol": "CQrCode"
+          },
+          "attributes": [
+            {
+              "name": "value",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "label",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "large",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-result-row",
+          "description": "One line of the result table: place, cat name in its player colour, finish time and the points (this game and the total).",
+          "source": {
+            "module": "./src/shared/ui/components/cResultRow.ts",
+            "symbol": "CResultRow"
+          },
+          "attributes": [
+            {
+              "name": "place",
+              "description": "",
+              "value": {
+                "type": "number"
+              }
+            },
+            {
+              "name": "name",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "color",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "time",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "score",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-screen",
+          "description": "Full-screen overlay surface that centres its children (and scrolls when they are taller than the screen): `<c-screen tone=\"solid\">…</c-screen>`;\n`enter` flies it in when it appears.",
+          "source": {
+            "module": "./src/shared/ui/components/cScreen.ts",
+            "symbol": "CScreen"
+          },
+          "attributes": [
+            {
+              "name": "tone",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "enter",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-scroll",
+          "description": "Scrollable, left-aligned area for long content inside a menu: `<c-scroll>…</c-scroll>`. The scrollbar is always\nvisible so that cut-off content shows there is more to scroll to.",
+          "source": {
+            "module": "./src/shared/ui/components/cScroll.ts",
+            "symbol": "CScroll"
+          },
+          "attributes": []
+        },
+        {
+          "name": "c-setting-row",
+          "description": "One selectable setting in a card: label on the left, value (optionally with colour swatches)\non the right, and ◀/▶ arrows while it is the active row.\n`<c-setting-row label=\"Fellfarbe\" value=\"Schwarz\" .swatches=${['#000']} active></c-setting-row>`",
+          "source": {
+            "module": "./src/shared/ui/components/cSettingRow.ts",
+            "symbol": "CSettingRow"
+          },
+          "attributes": [
+            {
+              "name": "label",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "value",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "active",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-stack",
+          "description": "Layout primitive that lines its children up: `<c-stack direction=\"row\" gap=\"m\" align=\"center\">…</c-stack>`.\n`grow` takes the free space of its parent, `fill` the whole viewport, `narrow` a phone-width column, `wrap` lets the children flow onto the next line,\n`adapt` changes the layout with the orientation (`rowInLandscape`, `columnInPortrait`, `centerInPortrait`,\n`tightInPortrait`). `fill` follows the visible height of a phone browser (dvh), not the one behind its toolbars.",
+          "source": {
+            "module": "./src/shared/ui/components/cStack.ts",
+            "symbol": "CStack"
+          },
+          "attributes": [
+            {
+              "name": "direction",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "gap",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "align",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "justify",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "padding",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "grow",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "fill",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "narrow",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "wrap",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "adapt",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-start-countdown",
+          "description": "Big centred \"3\", \"2\", \"1\", \"Los!\" before the race: `<c-start-countdown>3</c-start-countdown>`.",
+          "source": {
+            "module": "./src/shared/ui/components/cStartCountdown.ts",
+            "symbol": "CStartCountdown"
+          },
+          "attributes": []
+        },
+        {
+          "name": "c-stat-bars",
+          "description": "Small comparison bars in two columns, e.g. the driving values of a kart:\n`<c-stat-bars .bars=${[{ label: 'Tempo', ratio: 0.6 }]}></c-stat-bars>`",
+          "source": {
+            "module": "./src/shared/ui/components/cStatBars.ts",
+            "symbol": "CStatBars"
+          },
+          "attributes": []
+        },
+        {
+          "name": "c-stick-pad",
+          "description": "Touch stick area of the phone controller. The controller script drives `#stick-knob` and\n`#stick-line`, grabs fingers on `#stick-zone` and measures `#stick-base`; the knob and line take\nthe player colour from the page's `--player-color`.",
+          "source": {
+            "module": "./src/shared/ui/components/cStickPad.ts",
+            "symbol": "CStickPad"
+          },
+          "attributes": []
+        },
+        {
+          "name": "c-text",
+          "description": "Paragraph text: `<c-text tone=\"muted\" size=\"s\">…</c-text>`; `relaxed` adds line spacing for\nmulti-line explanations, `measure=\"prose\"` limits the line length. Links inside are styled too.",
+          "source": {
+            "module": "./src/shared/ui/components/cText.ts",
+            "symbol": "CText"
+          },
+          "attributes": [
+            {
+              "name": "tone",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "size",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "relaxed",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "measure",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "c-touch-button",
+          "description": "Big touch button of the phone controller: `<c-touch-button kind=\"action\" mode=\"warn\" size=\"l\"\nlabel=\"Drift\"></c-touch-button>`. `kind` is the shape: arrow keys, round action buttons or the\nsmall round system buttons, `ok` the round confirm button in the middle of the arrows. `aria` sets the accessible name for icon-only labels.",
+          "source": {
+            "module": "./src/shared/ui/components/cTouchButton.ts",
+            "symbol": "CTouchButton"
+          },
+          "attributes": [
+            {
+              "name": "label",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "kind",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "mode",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "size",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "aria",
+              "description": "",
+              "value": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

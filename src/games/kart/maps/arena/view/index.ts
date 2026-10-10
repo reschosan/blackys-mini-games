@@ -1,0 +1,1 @@
+export { createArenaView } from './arenaView';
