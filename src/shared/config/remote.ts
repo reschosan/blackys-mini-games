@@ -63,6 +63,6 @@ export const REMOTE_HOST_MESSAGE_MAX_CHARACTERS = 6000;
 export const REMOTE_STATE_MAX_BYTES = 4096;
 export const REMOTE_MAX_MESSAGES_PER_SECOND = 240;
 export const REMOTE_PROTOCOL_VERSION = 1;
-export const REMOTE_ANSWER_PREFIX = 'catkart-a:';
+export const REMOTE_ANSWER_PREFIX = 'blackys-mini-games-a:';
 export const REMOTE_OFFER_HASH_KEY = 'o';
 export const JOIN_PAGE_FILE = 'join.html';

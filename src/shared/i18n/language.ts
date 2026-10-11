@@ -7,7 +7,7 @@ const FALLBACK_LANGUAGE: Language = 'en';
 /** Each language named in itself, so that anybody finds their own. */
 export const LANGUAGE_NAMES: Readonly<Record<Language, string>> = { en: 'English', de: 'Deutsch' };
 
-const STORAGE_KEY = 'catkart:language';
+const STORAGE_KEY = 'blackys-mini-games:language';
 
 export function isLanguage(value: unknown): value is Language {
   return typeof value === 'string' && (LANGUAGES as readonly string[]).includes(value);

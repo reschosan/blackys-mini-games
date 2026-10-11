@@ -1,6 +1,6 @@
 import { TOUCH_CONTROL_MODES, TOUCH_LAYOUTS, type TouchSettings } from '../../config/touch';
 
-const STORAGE_KEY = 'catkart:touch';
+const STORAGE_KEY = 'blackys-mini-games:touch';
 
 export function loadTouchSettings(defaults: TouchSettings, storage: Storage = window.localStorage): TouchSettings {
   try {

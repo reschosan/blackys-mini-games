@@ -36,7 +36,7 @@ function cat(): TemplateResult {
     <path d="M70 52 L88 54 M70 58 L88 57 M130 52 L112 54 M130 58 L112 57" stroke-width="1.2" stroke-linecap="round" class="stroke-soft" />`;
 }
 
-/** Full-screen loading screen with a cat kart driving on the spot: `<c-loading-screen
+/** Full-screen loading screen with a cat driving a kart on the spot: `<c-loading-screen
  *  label="Loading nature trail" tip="…"></c-loading-screen>`. `leaving` fades it out. */
 export class CLoadingScreen extends CComponent {
   static override properties = { label: { type: String }, tip: { type: String }, leaving: { type: Boolean, reflect: true }, contained: { type: Boolean } };

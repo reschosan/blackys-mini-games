@@ -20,7 +20,7 @@ test('without WebGL the start screen gives way to a friendly message with a retr
     HTMLCanvasElement.prototype.getContext = () => null;
   });
   await page.goto('/');
-  await expect(problems(page).locator('c-header')).toHaveText('Hoppla, dein Browser kann Cat Kart nicht anzeigen');
+  await expect(problems(page).locator('c-header')).toHaveText("Hoppla, dein Browser kann Blacky's Mini Games nicht anzeigen");
   await expect(problems(page).locator('c-button')).toHaveAttribute('label', 'Nochmal versuchen');
   await expect(page.locator('#boot-screen')).toHaveCount(0);
 });

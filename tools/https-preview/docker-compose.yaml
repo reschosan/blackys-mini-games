@@ -4,7 +4,7 @@
 services:
   https-preview:
     image: caddy:2-alpine
-    container_name: catkart-https-preview
+    container_name: blackys-mini-games-https-preview
     restart: unless-stopped
     ports:
       - "${HTTPS_PORT:-8745}:8745"

@@ -6,7 +6,7 @@ const IPAD = { viewport: { width: 810, height: 1080 }, hasTouch: true, isMobile:
 
 async function openPhone(context: BrowserContext, settings?: { mode: string; layout: string }): Promise<Page> {
   const page = await context.newPage();
-  if (settings) await page.addInitScript((saved) => window.localStorage.setItem('catkart:touch', JSON.stringify(saved)), settings);
+  if (settings) await page.addInitScript((saved) => window.localStorage.setItem('blackys-mini-games:touch', JSON.stringify(saved)), settings);
   await page.goto('/');
   await page.waitForFunction(() => typeof window.__game?.getState === 'function');
   await page.waitForLoadState('networkidle');
@@ -150,7 +150,7 @@ test.describe('phone with on-screen controls', () => {
     await expect(page.locator('[data-option-id=touchMode]')).toHaveAttribute('label', 'Touch-Steuerung: Vereinfacht');
     await page.locator('[data-option-id=touchLayout]').tap();
     await expect(page.locator('[data-option-id=touchLayout]')).toHaveAttribute('label', 'Touch-Layout: Geteilter Bildschirm');
-    expect(JSON.parse(await page.evaluate(() => window.localStorage.getItem('catkart:touch') ?? '{}'))).toEqual({ mode: 'simple', layout: 'split' });
+    expect(JSON.parse(await page.evaluate(() => window.localStorage.getItem('blackys-mini-games:touch') ?? '{}'))).toEqual({ mode: 'simple', layout: 'split' });
 
     await page.reload();
     await page.waitForFunction(() => typeof window.__game?.getState === 'function');

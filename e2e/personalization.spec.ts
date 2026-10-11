@@ -28,7 +28,7 @@ test('lobby personalization: row/value navigation, ready-gating, persistence', a
   await page.waitForFunction(() => window.__game.getState().phase === 'racing', undefined, { timeout: 5000 });
 
   // Persistence: the gamepad player's chosen fur color survives a reload.
-  const saved = await page.evaluate(() => window.localStorage.getItem('catkart:cat:gamepad:0'));
+  const saved = await page.evaluate(() => window.localStorage.getItem('blackys-mini-games:cat:gamepad:0'));
   expect(saved).not.toBeNull();
   const savedFurColor = JSON.parse(saved ?? '{}').furColor as string;
 
@@ -57,7 +57,7 @@ test('long hair: the "Haarlänge" row switches the cat to long hair, saves it an
 
   await tapButton(page, PAD.RIGHT);
   await expect(activeRow).toHaveAttribute('value', 'Lang');
-  const saved = await page.evaluate(() => window.localStorage.getItem('catkart:cat:gamepad:0'));
+  const saved = await page.evaluate(() => window.localStorage.getItem('blackys-mini-games:cat:gamepad:0'));
   expect(JSON.parse(saved ?? '{}').hairLength).toBe('long');
 
   await page.reload();
@@ -82,7 +82,7 @@ test('mane: the "Mähne" row cycles none, Kragen and Löwenmähne, saves the cho
   await expect(activeRow).toHaveAttribute('value', 'Kragen');
   await tapButton(page, PAD.RIGHT);
   await expect(activeRow).toHaveAttribute('value', 'Löwenmähne');
-  const saved = await page.evaluate(() => window.localStorage.getItem('catkart:cat:gamepad:0'));
+  const saved = await page.evaluate(() => window.localStorage.getItem('blackys-mini-games:cat:gamepad:0'));
   expect(JSON.parse(saved ?? '{}').mane).toBe('lion');
 
   await page.reload();

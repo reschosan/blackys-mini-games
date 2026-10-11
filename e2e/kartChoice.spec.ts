@@ -46,7 +46,7 @@ test('kart choice after the game vote: wheels only where selectable, saved per d
   expect(kart.kartType).toBe('motorcycle');
   expect(kart.wheels).toBe('offroad');
 
-  const saved = await page.evaluate(() => window.localStorage.getItem('catkart:kart:gamepad:0'));
+  const saved = await page.evaluate(() => window.localStorage.getItem('blackys-mini-games:kart:gamepad:0'));
   expect(JSON.parse(saved ?? '{}')).toEqual({ kartType: 'motorcycle', wheels: 'offroad', colorIndex: 1 });
   expect(errors).toEqual([]);
 });

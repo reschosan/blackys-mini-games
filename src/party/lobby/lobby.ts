@@ -243,7 +243,7 @@ export class LobbyView {
     const aiFillButton = players.length === 0 ? nothing : html`<c-button data-ai-fill-button size="s" label=${lobby.aiOpponents(aiCount)}></c-button>`;
     render(
       html`
-      <c-header>Cat Kart</c-header>
+      <c-header>Blacky's Mini Games</c-header>
       <c-list direction="row" gap="m">${slots}</c-list>
       <c-list direction="row" gap="m" align="center">
         <c-checkbox data-audio-toggle label=${lobby.soundCheckbox} ?checked=${!audioMuted}></c-checkbox>

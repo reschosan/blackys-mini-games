@@ -1,4 +1,4 @@
-# Blackys Mini Games
+# Blacky's Mini Games
 
 A party game for the browser with cats: a collection of minigames for 1–4 players on one screen with gamepads, filled up with AI cats.
 On a phone you play with touch controls, and up to three more phones can join a host over the local Wi-Fi, each drawing the game

@@ -38,7 +38,7 @@ function hostTest(name: string, script: (page: Page, audit: Audit, controls: Con
       const page = await context.newPage();
       if (!profile.touch) await installFakeGamepads(page, 2);
       if (profile.layout)
-        await page.addInitScript((layout) => window.localStorage.setItem('catkart:touch', JSON.stringify({ mode: 'auto', layout })), profile.layout);
+        await page.addInitScript((layout) => window.localStorage.setItem('blackys-mini-games:touch', JSON.stringify({ mode: 'auto', layout })), profile.layout);
       try {
         await openHost(page);
         await script(
@@ -233,7 +233,7 @@ test.describe('touch driving controls', () => {
         const baseURL = testInfo.project.use.baseURL;
         const context = await browser.newContext({ ...(baseURL ? { baseURL } : {}), hasTouch: true, viewport: { width: 390, height: 844 } });
         const page = await context.newPage();
-        await page.addInitScript((saved) => window.localStorage.setItem('catkart:touch', JSON.stringify(saved)), { mode, layout });
+        await page.addInitScript((saved) => window.localStorage.setItem('blackys-mini-games:touch', JSON.stringify(saved)), { mode, layout });
         try {
           await openHost(page);
           await TOUCH_CONTROLS.confirm(page);

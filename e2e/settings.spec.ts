@@ -10,7 +10,7 @@ test('opens persistent audio settings from the lobby', async ({ page }) => {
   await tapButton(page, PAD.CROSS);
   await expect(page.locator('[data-testid=menu] c-header')).toHaveText('Ton');
   await tapButton(page, PAD.CROSS);
-  expect(await page.evaluate(() => JSON.parse(window.localStorage.getItem('catkart:audio') ?? '{}').muted)).toBe(false);
+  expect(await page.evaluate(() => JSON.parse(window.localStorage.getItem('blackys-mini-games:audio') ?? '{}').muted)).toBe(false);
 
   await tapButton(page, PAD.DOWN);
   await expect(page.locator('[data-testid=menu] c-button[active]')).toHaveAttribute('data-option-id', 'musicDown');

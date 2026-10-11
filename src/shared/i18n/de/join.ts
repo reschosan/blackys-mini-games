@@ -1,7 +1,7 @@
 import type { Texts } from '../en';
 
 export const join: Texts['join'] = {
-  pageTitle: 'Cat Kart beitreten',
+  pageTitle: "Blacky's Mini Games beitreten",
   phaseHeadlines: { lobby: 'Lobby', racing: 'Rennen', paused: 'Pausiert', results: 'Rennen vorbei' },
   phaseDetails: {
     lobby: 'Wähle mit dem Kreuz deine Katze. OK setzt dich auf „Bereit“. Sind alle bereit, wählt ihr das Spiel.',

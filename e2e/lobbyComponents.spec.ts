@@ -36,7 +36,7 @@ async function passGameVote(page: Page): Promise<void> {
 
 test('the lobby sound checkbox toggles the muted setting and keeps it', async ({ page }) => {
   await openLobby(page);
-  const muted = () => page.evaluate(() => JSON.parse(window.localStorage.getItem('catkart:audio') ?? '{}').muted);
+  const muted = () => page.evaluate(() => JSON.parse(window.localStorage.getItem('blackys-mini-games:audio') ?? '{}').muted);
 
   await clickAt(page, 'c-checkbox[data-audio-toggle] input');
   expect(await muted()).toBe(false);

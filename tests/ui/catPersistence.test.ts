@@ -27,7 +27,7 @@ describe('saved cat appearance', () => {
 
   it('treats a cat saved before hair length and mane existed as short-haired without a mane', () => {
     const { hairLength: _hairLength, mane: _mane, ...oldFormat } = createCatAppearance();
-    stubStorage({ 'catkart:cat:gamepad:0': JSON.stringify(oldFormat) });
+    stubStorage({ 'blackys-mini-games:cat:gamepad:0': JSON.stringify(oldFormat) });
     expect(loadCatAppearance('gamepad:0')).toEqual({ ...oldFormat, hairLength: 'short', mane: 'none' });
   });
 
@@ -37,12 +37,12 @@ describe('saved cat appearance', () => {
     saveCatAppearance('gamepad:0', appearance);
     expect(loadCatAppearance('gamepad:0')).toEqual(appearance);
 
-    stubStorage({ 'catkart:cat:gamepad:0': JSON.stringify({ ...createCatAppearance(), mane: 'mohawk' }) });
+    stubStorage({ 'blackys-mini-games:cat:gamepad:0': JSON.stringify({ ...createCatAppearance(), mane: 'mohawk' }) });
     expect(loadCatAppearance('gamepad:0')).toBeNull();
   });
 
   it('rejects a saved cat with an unknown hair length', () => {
-    stubStorage({ 'catkart:cat:gamepad:0': JSON.stringify({ ...createCatAppearance(), hairLength: 'fluffy' }) });
+    stubStorage({ 'blackys-mini-games:cat:gamepad:0': JSON.stringify({ ...createCatAppearance(), hairLength: 'fluffy' }) });
     expect(loadCatAppearance('gamepad:0')).toBeNull();
   });
 

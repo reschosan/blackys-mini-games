@@ -1590,7 +1590,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Full-screen loading screen with a cat kart driving on the spot: `<c-loading-screen\nlabel=\"Loading nature trail\" tip=\"…\"></c-loading-screen>`. `leaving` fades it out.",
+          "description": "Full-screen loading screen with a cat driving a kart on the spot: `<c-loading-screen\nlabel=\"Loading nature trail\" tip=\"…\"></c-loading-screen>`. `leaving` fades it out.",
           "name": "CLoadingScreen",
           "members": [
             {

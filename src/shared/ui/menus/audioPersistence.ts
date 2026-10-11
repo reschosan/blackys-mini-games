@@ -1,6 +1,6 @@
 import type { AudioConfig } from '../../config/audio';
 
-const STORAGE_KEY = 'catkart:audio';
+const STORAGE_KEY = 'blackys-mini-games:audio';
 
 function volume(value: unknown, fallback: number): number {
   return typeof value === 'number' && Number.isFinite(value) ? Math.min(Math.max(value, 0), 1) : fallback;

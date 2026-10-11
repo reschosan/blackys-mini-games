@@ -28,8 +28,8 @@ function pictureOf(text: string): { readonly data: Uint8ClampedArray; readonly s
 
 describe('QR code round trip', () => {
   it('reads back a short text', () => {
-    const { data, size } = pictureOf('catkart-a:hello');
-    expect(jsQR(data, size, size)?.data).toBe('catkart-a:hello');
+    const { data, size } = pictureOf('blackys-mini-games-a:hello');
+    expect(jsQR(data, size, size)?.data).toBe('blackys-mini-games-a:hello');
   });
 
   it('reads back the address of the join page with a whole offer in it', async () => {

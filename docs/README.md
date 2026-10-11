@@ -1,4 +1,4 @@
-# Cat Kart documentation
+# Blacky's Mini Games documentation
 
 This directory is the public, English documentation for the source repository.
 

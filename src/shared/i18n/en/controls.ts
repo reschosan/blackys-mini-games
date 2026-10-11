@@ -21,7 +21,7 @@ export const controls = {
   down: 'Down',
   menuButton: 'Settings',
   loading: 'Loading …',
-  booting: 'Cat Kart is starting',
+  booting: "Blacky's Mini Games is starting",
   bootTip: 'The cats are starting their engines …',
   camera: 'Camera picture to read the player’s code',
   tips: [

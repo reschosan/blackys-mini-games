@@ -1,6 +1,6 @@
 # Architecture
 
-Cat Kart is a static browser game built with Vite, strict TypeScript, plain Three.js, Lit web components, and Tailwind CSS. No application server is needed to run the production build.
+Blacky's Mini Games is a static browser game built with Vite, strict TypeScript, plain Three.js, Lit web components, and Tailwind CSS. No application server is needed to run the production build.
 
 ## Runtime
 

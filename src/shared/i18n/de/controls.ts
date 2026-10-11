@@ -23,7 +23,7 @@ export const controls: Texts['controls'] = {
   down: 'Nach unten',
   menuButton: 'Einstellungen',
   loading: 'Lädt …',
-  booting: 'Cat Kart startet',
+  booting: "Blacky's Mini Games startet",
   bootTip: 'Die Katzen starten die Motoren …',
   camera: 'Kamerabild zum Lesen des Codes vom Mitspieler',
   tips: [

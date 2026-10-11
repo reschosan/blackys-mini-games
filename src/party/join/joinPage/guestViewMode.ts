@@ -1,4 +1,4 @@
-const VIEW_MODE_KEY = 'catkart:guestView';
+const VIEW_MODE_KEY = 'blackys-mini-games:guestView';
 
 /** "own": the race is drawn on this phone with a camera on the own kart. "controller": this phone only steers, the picture is on the host. */
 export type ViewMode = 'own' | 'controller';

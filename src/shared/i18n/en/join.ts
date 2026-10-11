@@ -1,5 +1,5 @@
 export const join = {
-  pageTitle: 'Join Cat Kart',
+  pageTitle: "Join Blacky's Mini Games",
   phaseHeadlines: { lobby: 'Lobby', racing: 'Race', paused: 'Paused', results: 'Race over' },
   phaseDetails: {
     lobby: 'Pick your cat with the d-pad. OK sets you “Ready”. When everybody is ready, you choose the game.',

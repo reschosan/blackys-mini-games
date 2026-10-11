@@ -10,7 +10,7 @@ export const problems = {
     full: 'Oops … all four seats are taken.',
   },
   join: {
-    badCode: 'Oops … this code does not belong to Cat Kart. Scan the code on the host’s phone again.',
+    badCode: "Oops … this code does not belong to Blacky's Mini Games. Scan the code on the host’s phone again.",
     connectionFailed: 'Oops … the connection does not work. Are you on the same Wi-Fi? A guest Wi-Fi usually does not work.',
     noWebRtc: 'Oops … your browser cannot connect to another phone. Use an up-to-date browser.',
     versionMismatch: 'this phone has a different version of the game than the host. Reload the page. Until then you are only a controller.',
@@ -19,8 +19,9 @@ export const problems = {
     left: 'You left the game. Scan the code on the host’s phone again to play along.',
     ended: 'Oops … the connection has ended. Scan the code on the host’s phone again.',
   },
-  webglTitle: 'Oops, your browser cannot show Cat Kart',
-  webglText: 'Cat Kart needs 3D graphics (WebGL). Turn on hardware acceleration or use an up-to-date browser such as Chrome, Edge, Firefox or Safari.',
+  webglTitle: "Oops, your browser cannot show Blacky's Mini Games",
+  webglText:
+    "Blacky's Mini Games needs 3D graphics (WebGL). Turn on hardware acceleration or use an up-to-date browser such as Chrome, Edge, Firefox or Safari.",
   tryAgain: 'Try again',
   graphicsNapTitle: 'Oops, the graphics are taking a nap',
   graphicsRecovering: 'One moment, the game is trying to recover.',

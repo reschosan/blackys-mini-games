@@ -103,20 +103,20 @@ describe('saved names', () => {
   afterEach(() => vi.unstubAllGlobals());
 
   it('keeps a saved cat name that is valid and free', () => {
-    stubStorage({ 'catkart:cat:gamepad:0': JSON.stringify({ ...createCatAppearance(), name: CAT_NAMES[4] }) });
+    stubStorage({ 'blackys-mini-games:cat:gamepad:0': JSON.stringify({ ...createCatAppearance(), name: CAT_NAMES[4] }) });
     const { customization, players } = setup(1);
     expect(nameOf(customization, players[0]!)).toBe(CAT_NAMES[4]);
   });
 
   it('replaces a saved name from an earlier version by the first free cat name', () => {
-    stubStorage({ 'catkart:cat:gamepad:0': JSON.stringify({ ...createCatAppearance(), name: 'Luna' }) });
+    stubStorage({ 'blackys-mini-games:cat:gamepad:0': JSON.stringify({ ...createCatAppearance(), name: 'Luna' }) });
     const { customization, players } = setup(1);
     expect(nameOf(customization, players[0]!)).toBe(CAT_NAMES[0]);
   });
 
   it('gives the second player another name when both saved the same one', () => {
     const saved = JSON.stringify({ ...createCatAppearance(), name: CAT_NAMES[2] });
-    stubStorage({ 'catkart:cat:gamepad:0': saved, 'catkart:cat:gamepad:1': saved });
+    stubStorage({ 'blackys-mini-games:cat:gamepad:0': saved, 'blackys-mini-games:cat:gamepad:1': saved });
     const { customization, players } = setup(2);
     expect(nameOf(customization, players[0]!)).toBe(CAT_NAMES[2]);
     expect(nameOf(customization, players[1]!)).not.toBe(CAT_NAMES[2]);

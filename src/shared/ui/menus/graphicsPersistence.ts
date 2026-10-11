@@ -1,6 +1,6 @@
 import { GRAPHICS_QUALITIES, type GraphicsConfig } from '../../config/graphics';
 
-const STORAGE_KEY = 'catkart:graphics';
+const STORAGE_KEY = 'blackys-mini-games:graphics';
 
 export function loadGraphicsSettings(defaults: GraphicsConfig, storage: Storage = window.localStorage): GraphicsConfig {
   try {

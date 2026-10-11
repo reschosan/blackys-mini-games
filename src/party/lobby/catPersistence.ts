@@ -2,9 +2,9 @@ import { isValidCatAppearance, type CatAppearance } from '../../shared/config/ca
 import { isValidKartLoadout, type KartLoadout } from '../../shared/config/kartLoadout';
 import { isPlaneType, type PlaneTypeId } from '../../shared/config/planeTypes';
 
-const STORAGE_PREFIX = 'catkart:cat:';
-const KART_STORAGE_PREFIX = 'catkart:kart:';
-const PLANE_STORAGE_PREFIX = 'catkart:plane:';
+const STORAGE_PREFIX = 'blackys-mini-games:cat:';
+const KART_STORAGE_PREFIX = 'blackys-mini-games:kart:';
+const PLANE_STORAGE_PREFIX = 'blackys-mini-games:plane:';
 
 export function loadCatAppearance(sourceKey: string): CatAppearance | null {
   try {

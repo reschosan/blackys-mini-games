@@ -27,7 +27,7 @@ const elements = manifest.modules.flatMap((module) =>
 
 const webTypes = {
   $schema: 'https://json.schemastore.org/web-types',
-  name: 'cat-kart-components',
+  name: 'blackys-mini-games-components',
   version: '0.0.0',
   'js-types-syntax': 'typescript',
   'description-markup': 'markdown',

@@ -12,7 +12,7 @@ export const problems: Texts['problems'] = {
     full: 'Hoppla … alle vier Plätze sind besetzt.',
   },
   join: {
-    badCode: 'Hoppla … dieser Code gehört nicht zu Cat Kart. Scanne den Code am Handy des Gastgebers noch einmal.',
+    badCode: "Hoppla … dieser Code gehört nicht zu Blacky's Mini Games. Scanne den Code am Handy des Gastgebers noch einmal.",
     connectionFailed: 'Hoppla … die Verbindung klappt nicht. Seid ihr im selben WLAN? Ein Gäste-WLAN geht meist nicht.',
     noWebRtc: 'Hoppla … dein Browser kann keine Verbindung zu einem anderen Handy aufbauen. Nutze einen aktuellen Browser.',
     versionMismatch: 'dieses Handy hat eine andere Version des Spiels als der Gastgeber. Lade die Seite neu. Bis dahin bist du nur Controller.',
@@ -21,9 +21,9 @@ export const problems: Texts['problems'] = {
     left: 'Du hast das Spiel verlassen. Scanne den Code am Handy des Gastgebers noch einmal, um wieder mitzuspielen.',
     ended: 'Hoppla … die Verbindung ist beendet. Scanne den Code am Handy des Gastgebers noch einmal.',
   },
-  webglTitle: 'Hoppla, dein Browser kann Cat Kart nicht anzeigen',
+  webglTitle: "Hoppla, dein Browser kann Blacky's Mini Games nicht anzeigen",
   webglText:
-    'Cat Kart braucht 3D-Grafik (WebGL). Schalte die Hardwarebeschleunigung ein oder nutze einen aktuellen Browser wie Chrome, Edge, Firefox oder Safari.',
+    "Blacky's Mini Games braucht 3D-Grafik (WebGL). Schalte die Hardwarebeschleunigung ein oder nutze einen aktuellen Browser wie Chrome, Edge, Firefox oder Safari.",
   tryAgain: 'Nochmal versuchen',
   graphicsNapTitle: 'Hoppla, die Grafik macht ein Nickerchen',
   graphicsRecovering: 'Einen Moment, das Spiel versucht sich zu erholen.',

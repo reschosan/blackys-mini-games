@@ -127,7 +127,7 @@ test.describe('the lobby on the guest phone', () => {
     const { host, context } = await newHostAndContext(browser, false, true);
     await context.addInitScript(() => {
       window.localStorage.setItem(
-        'catkart:cat:guest',
+        'blackys-mini-games:cat:guest',
         JSON.stringify({
           name: 'Mauzi',
           furColor: 'red',
@@ -138,7 +138,7 @@ test.describe('the lobby on the guest phone', () => {
           mane: 'ruff',
         }),
       );
-      window.localStorage.setItem('catkart:kart:guest', JSON.stringify({ kartType: 'tank', wheels: 'standard', colorIndex: 2 }));
+      window.localStorage.setItem('blackys-mini-games:kart:guest', JSON.stringify({ kartType: 'tank', wheels: 'standard', colorIndex: 2 }));
     });
     await openInvitation(host);
     const guest = await connectGuest(host, context);
@@ -146,7 +146,7 @@ test.describe('the lobby on the guest phone', () => {
     await closeInvitation(host);
     await expect(guest.locator(`${GUEST_LOBBY} c-cat-preview-card`)).toBeVisible({ timeout: 20_000 });
     // The host takes the profile only while the cats are made: wait until it has it before everybody is ready.
-    await expect.poll(() => host.evaluate(() => window.localStorage.getItem('catkart:cat:remote:1') ?? '')).toContain('"furColor":"red"');
+    await expect.poll(() => host.evaluate(() => window.localStorage.getItem('blackys-mini-games:cat:remote:1') ?? '')).toContain('"furColor":"red"');
     // The whole cat is on the card of the game that is chosen: ready, both lock in the first game, and the kart card shows the cat the phone brought.
     await tapButton(host, PAD.CROSS);
     await tapElement(guest, `${GUEST_LOBBY} [data-row-id="ready"]`);

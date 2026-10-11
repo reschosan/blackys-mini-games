@@ -69,7 +69,9 @@ describe('graphics persistence', () => {
     const storage = fakeStorage();
     saveGraphicsSettings({ ...createRuntimeGraphics(), quality: 'low' }, storage);
     expect(loadGraphicsSettings(createRuntimeGraphics(), storage).quality).toBe('low');
-    expect(loadGraphicsSettings(createRuntimeGraphics(), fakeStorage({ 'catkart:graphics': 'ultra' })).quality).toBe(createRuntimeGraphics().quality);
+    expect(loadGraphicsSettings(createRuntimeGraphics(), fakeStorage({ 'blackys-mini-games:graphics': 'ultra' })).quality).toBe(
+      createRuntimeGraphics().quality,
+    );
   });
 });
 

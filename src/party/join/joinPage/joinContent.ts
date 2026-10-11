@@ -39,7 +39,7 @@ export function connectedContent(page: {
 }
 
 export function problemContent(kind: JoinProblem): TemplateResult {
-  return html`<c-header>Cat Kart</c-header><c-text tone="soft" measure="prose" role="alert">${problemText(kind)}</c-text>`;
+  return html`<c-header>Blacky's Mini Games</c-header><c-text tone="soft" measure="prose" role="alert">${problemText(kind)}</c-text>`;
 }
 
 function problemText(kind: JoinProblem): string {

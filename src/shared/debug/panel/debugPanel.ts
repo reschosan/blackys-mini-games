@@ -23,7 +23,7 @@ import { addMapRouteControls } from './routeControls';
 const TOGGLE_KEY = 'F1';
 
 export class DebugPanel {
-  private readonly gui = new GUI({ title: 'Cat Kart — Debug' });
+  private readonly gui = new GUI({ title: "Blacky's Mini Games — Debug" });
   private readonly fpsReadout = { fps: 0 };
   private visible = true;
   private frameCount = 0;
@@ -91,7 +91,7 @@ export class DebugPanel {
 
   private addConfigActions(): void {
     const actions = {
-      exportJson: () => downloadJson('cat-kart-tuning.json', toJson(this.configs)),
+      exportJson: () => downloadJson('blackys-mini-games-tuning.json', toJson(this.configs)),
       loadDefaults: () => {
         resetRuntimeDriving(this.configs.driving);
         resetRuntimeCamera(this.configs.camera);

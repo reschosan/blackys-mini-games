@@ -214,6 +214,6 @@ test('the sound starts off and is switched on right in the pause menu, the entry
     )
     .toContain('Ton ausschalten');
   await expect(page.locator('[data-testid=menu] c-button[active]')).toHaveAttribute('data-option-id', 'pauseSound');
-  expect(await page.evaluate(() => JSON.parse(window.localStorage.getItem('catkart:audio') ?? '{}').muted)).toBe(false);
+  expect(await page.evaluate(() => JSON.parse(window.localStorage.getItem('blackys-mini-games:audio') ?? '{}').muted)).toBe(false);
   expect(await page.evaluate(() => window.__game.getState().phase)).toBe('paused');
 });
