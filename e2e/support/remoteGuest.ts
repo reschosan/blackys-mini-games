@@ -12,7 +12,7 @@ export const FAKE_CAMERA_LAUNCH_ARGS = [
 ];
 
 export async function tapElement(page: Page, selector: string): Promise<void> {
-  await page.evaluate((query) => document.querySelector(query)!.dispatchEvent(new PointerEvent('pointerup', { bubbles: true })), selector);
+  await page.locator(selector).evaluate((element) => element.dispatchEvent(new PointerEvent('pointerup', { bubbles: true })));
   await page.waitForTimeout(200);
 }
 

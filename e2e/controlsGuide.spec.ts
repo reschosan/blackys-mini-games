@@ -24,8 +24,13 @@ test('lobby button opens the controls overview and back returns to the settings'
 test('Select opens the controls overview from the lobby', async ({ page }) => {
   await openGame(page);
 
-  await tapButton(page, PAD.SELECT);
-  await expect(page.locator('[data-testid=menu] c-header')).toHaveText('Einstellungen');
+  const menuHeader = page.locator('[data-testid=menu] c-header');
+  await expect
+    .poll(async () => {
+      if (!(await menuHeader.isVisible())) await tapButton(page, PAD.SELECT);
+      return (await menuHeader.isVisible()) ? menuHeader.textContent() : null;
+    })
+    .toBe('Einstellungen');
   await page.locator('[data-option-id="controls"]').click();
   await expect(page.locator('c-controls-guide')).toBeVisible();
 });

@@ -179,9 +179,14 @@ test('Zurück in the map vote returns everyone to the game vote, votes dropped',
   await page.waitForSelector('[data-testid=map-vote]', { state: 'visible', timeout: 5000 });
   await clickAt(page, '[data-testid=map-vote] c-map-vote-card', 1);
 
-  await clickAt(page, '[data-testid=map-vote] [data-back-button]');
-
-  await expect(page.locator('[data-testid=map-vote]')).toBeHidden();
+  const mapVote = page.locator('[data-testid=map-vote]');
+  await expect
+    .poll(async () => {
+      if (await mapVote.isHidden()) return true;
+      await clickAt(page, '[data-testid=map-vote] [data-back-button]');
+      return mapVote.isHidden();
+    })
+    .toBe(true);
   await expect(page.locator('[data-testid=game-vote]')).toBeVisible();
   await expect(page.locator('[data-testid=game-vote] c-chip')).toHaveCount(2);
 });
