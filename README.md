@@ -1,10 +1,10 @@
 # Cat Kart - Blackys Mini Games
 
 A party game for the browser with cats: a collection of minigames for 1–4 players on one screen with gamepads, filled up with AI cats.
-On a phone you play alone with touch controls, and up to three more phones can join a host over the local Wi-Fi, each drawing the game
+On a phone you play with touch controls, and up to three more phones can join a host over the local Wi-Fi, each drawing the game
 on its own screen. There is no server: the game is a static web page, the phones talk to each other directly (WebRTC).
 
-The game is dedicated to Blacky, a black cat from Ukraine (see “About Blacky” in the game).
+Blacky is a black cat from Ukraine. His story appears on the “About Blacky” page in the game.
 
 The public project documentation starts in [`docs/`](docs/README.md).
 
@@ -12,19 +12,14 @@ The public project documentation starts in [`docs/`](docs/README.md).
 
 ## Start (local)
 
-Make sure you have the current Node.js LTS version and Docker (Compose) installed.
-To start the game locally, install the node modules and execute the start script under `tools/https-preview`, 
-for example: run the following commands in the project root (Mac, Linux):
+Install dependencies and start the development server (tested with Node.js 24.16.0):
 
 ```bash
 npm ci
-
-# Make sure, docker is running
-sh tools/https-preview/start-d.sh
+npm run dev
 ```
 
-Then open the URL with either your host address or your hostname with port 8745 in your browser. The game will run on the local network.
-For example, if your host address is `192.168.1.100`, open `https://192.168.1.100:8745` in your browser.
+Open the URL shown by Vite in your desktop browser. For testing on real phones over the local network, use the [HTTPS preview](tools/https-preview/README.md); that requires Docker Compose.
 
 ## Games
 
@@ -53,13 +48,11 @@ English and German. The game starts in the browser’s language if it speaks it,
 settings and in the lobby. Every guest phone shows its own language. All texts live in `src/shared/i18n/` (`en/`, `de/`); a new language is a
 new folder there plus an entry in `LANGUAGES` (`src/shared/i18n/language.ts`), and TypeScript reports every text that is missing.
 
-## Getting started
-
-Testet on Node v24.16.0
+## Commands
 
 | Command | What it does |
 | --- | --- |
-| `npm install`, then `npm run dev` | Start the game in the dev server (with a tuning panel) |
+| `npm ci`, then `npm run dev` | Start the game in the dev server (with a tuning panel) |
 | `npm run build`, `npm run preview` | Build the static page and serve it like production |
 | `npm run check` | Typecheck, lint, formatting (Prettier), layer rules, unused code, unit tests (Vitest) |
 | `npm run format` | Format the code with Prettier |

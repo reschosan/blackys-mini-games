@@ -121,7 +121,7 @@ export interface LobbyClickHandlers {
   readonly onGraphicsClick: () => void;
   /** Someone clicked the "Controls" button to open the controls overview. */
   readonly onControlsClick: () => void;
-  /** Someone clicked the "About Blacky" button to open the dedication page. */
+  /** Someone clicked the "About Blacky" button to open the story page. */
   readonly onAboutClick: () => void;
   readonly onSettingsClick: () => void;
   /** Someone clicked "Invite players" to bring in other phones. */

@@ -14,9 +14,9 @@ export interface CatModelCredit {
 
 export const pages = {
   aboutStory: [
-    'I dedicate this project to my cat Blacky. In Ukraine, probably in 2021, he was put out on the street and taken in by a local animal shelter. We brought him home and gave him a new place to live.',
-    'Over the last years some challenges came along. He arrived with an eye injury and was nursed back. Months later he was diagnosed with calici, and his teeth were affected by FORL – by now they have all been pulled. In 2025 asthma was added. After years of treatment he was fairly fit again and we wanted to find him a buddy. Sadly we were turned down because he was found to have FIV. But don’t worry: we will find him a buddy.',
-    'Today he goes out in a secure garden and, after years full of challenges – for him, and because of the vet bills for us too – lives fairly healthy.',
+    'Blacky is a cat from Ukraine. Probably in 2021, he was abandoned and taken in by a local animal rescue group. He later found a new home.',
+    'Over the last years some challenges came along. He arrived with an eye injury and was nursed back. Months later he was diagnosed with calici, and his teeth were affected by FORL – by now they have all been pulled. In 2025 asthma was added. After years of treatment he was doing better. An inquiry about a feline companion was initially declined because of his FIV diagnosis. The search continues.',
+    'Today he goes out in a secure garden and, after years full of challenges, lives fairly healthy.',
     'Blacky carries scars in his soul from his time as a street cat. He is afraid of dogs, extremely jealous, and plays as soon as he is awake.',
   ],
   whatIsThat: 'What is that, actually?',
@@ -24,7 +24,7 @@ export const pages = {
     calici: {
       explanation:
         'Feline calicivirus is a contagious virus and one of the causes of cat flu. Typical signs are sneezing, fever and painful inflammation in the mouth. In some cats the infection stays for good.',
-      sourceLabel: 'Virus profile (ICTV)',
+      sourceLabel: 'Cornell College of Veterinary Medicine',
     },
     forl: {
       explanation:
@@ -46,8 +46,8 @@ export const pages = {
   noVetAdvice: 'This is general information and does not replace advice from a vet.',
   notAPurpose: 'A pet is not a purpose',
   notAPurposeText: [
-    'The treatments were very expensive. So: never get a pet for a particular purpose or on an impulse. A pet is part of the family, with everything that comes with it, even when it falls ill.',
-    'This project is private. If you are thinking about adopting a cat: ask at your local animal shelter or an animal welfare group near you.',
+    'Never get a pet for a particular purpose or on an impulse. A pet is part of the family, with everything that comes with it, even when it falls ill.',
+    'This is a personal project. If you are thinking about adopting a cat: ask at your local animal shelter or an animal welfare group near you.',
   ],
   privacy: [
     {

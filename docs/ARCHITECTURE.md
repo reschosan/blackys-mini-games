@@ -5,7 +5,7 @@ Cat Kart is a static browser game built with Vite, strict TypeScript, plain Thre
 ## Runtime
 
 - The simulation advances at a fixed 60 Hz, independent of rendering. Gameplay uses a seeded random number generator so the same seed can reproduce a run. Cosmetic rendering effects may use their own randomness.
-- Gamepad and touch input are translated into actions such as steering, acceleration, braking, drifting, item use, and pause. Gameplay systems consume actions rather than device events. The mouse is a menu shortcut; keyboard gameplay input is being retired.
+- Gamepad and touch input are translated into actions such as steering, acceleration, braking, drifting, item use, and pause. Gameplay systems consume actions rather than device events. The mouse is a menu shortcut; keyboard gameplay input has been removed.
 - `window.__game.getState()` exposes a JSON snapshot for browser tests. The tuning panel exists in the development server only.
 - Driving values, items, cats, maps, and game options are configured as data rather than embedded in the main loop.
 

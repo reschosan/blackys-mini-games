@@ -26,7 +26,7 @@
         },
         {
           "name": "c-button",
-          "description": "`<c-button label=\"Zurück\" mode=\"cancel\" size=\"l\" compact></c-button>`; `active` marks the\noption currently selected with keyboard, gamepad or phone.",
+          "description": "`<c-button label=\"Back\" mode=\"cancel\" size=\"l\" compact></c-button>`; `active` marks the\noption currently selected with keyboard, gamepad or phone.",
           "source": {
             "module": "./src/shared/ui/components/cButton.ts",
             "symbol": "CButton"
@@ -140,7 +140,7 @@
         },
         {
           "name": "c-checkbox",
-          "description": "`<c-checkbox label=\"Ton\" ?checked=${on}></c-checkbox>`; the native `change` event bubbles up.",
+          "description": "`<c-checkbox label=\"Sound\" ?checked=${on}></c-checkbox>`; the native `change` event bubbles up.",
           "source": {
             "module": "./src/shared/ui/components/cCheckbox.ts",
             "symbol": "CCheckbox"
@@ -164,7 +164,7 @@
         },
         {
           "name": "c-chip",
-          "description": "Small status label: `<c-chip mode=\"success\">Bereit</c-chip>`. `mode=\"color\"` paints it in\n`color` (a player colour); `dim` fades it, `outlined` adds a ring (e.g. a locked-in vote).",
+          "description": "Small status label: `<c-chip mode=\"success\">Ready</c-chip>`. `mode=\"color\"` paints it in\n`color` (a player colour); `dim` fades it, `outlined` adds a ring (e.g. a locked-in vote).",
           "source": {
             "module": "./src/shared/ui/components/cChip.ts",
             "symbol": "CChip"
@@ -218,7 +218,7 @@
         },
         {
           "name": "c-dpad",
-          "description": "The same cross on every phone screen that is not the race: four arrows around a round OK. Keys that do nothing on the\ncurrent screen stay where they are but are dimmed and disabled, so the thumb always finds the same place.\n`<c-dpad up=\"on\" down=\"on\" left=\"dim\" right=\"dim\" ok=\"on\" ok-label=\"Zurück\"></c-dpad>`. The buttons have the ids\n`pad-up`, `pad-down`, `pad-left`, `pad-right` and `pad-ok`; the controller script binds them by screen.",
+          "description": "The same cross on every phone screen that is not the race: four arrows around a round OK. Keys that do nothing on the\ncurrent screen stay where they are but are dimmed and disabled, so the thumb always finds the same place.\n`<c-dpad up=\"on\" down=\"on\" left=\"dim\" right=\"dim\" ok=\"on\" ok-label=\"Back\"></c-dpad>`. The buttons have the ids\n`pad-up`, `pad-down`, `pad-left`, `pad-right` and `pad-ok`; the controller script binds them by screen.",
           "source": {
             "module": "./src/shared/ui/components/cDpad.ts",
             "symbol": "CDpad"
@@ -319,6 +319,13 @@
             {
               "name": "place",
               "description": "",
+              "value": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "name",
+              "description": "The cat's name, shown in place of the place in a game where the place says nothing until the end.",
               "value": {
                 "type": "string"
               }
@@ -441,7 +448,7 @@
         },
         {
           "name": "c-loading-screen",
-          "description": "Full-screen loading screen with a cat kart driving on the spot: `<c-loading-screen\nlabel=\"Naturpfad wird geladen\" tip=\"…\"></c-loading-screen>`. `leaving` fades it out.",
+          "description": "Full-screen loading screen with a cat kart driving on the spot: `<c-loading-screen\nlabel=\"Loading nature trail\" tip=\"…\"></c-loading-screen>`. `leaving` fades it out.",
           "source": {
             "module": "./src/shared/ui/components/cLoadingScreen.ts",
             "symbol": "CLoadingScreen"
@@ -479,12 +486,20 @@
         },
         {
           "name": "c-map-vote-card",
-          "description": "Card of the map vote: `<c-map-vote-card><c-preview-frame …/><c-header level=\"3\">Name</c-header>\n<c-list …>markers</c-list></c-map-vote-card>`.",
+          "description": "Card of the map vote: `<c-map-vote-card active><c-preview-frame …/><c-header level=\"3\">Name</c-header>\n<c-list …>markers</c-list></c-map-vote-card>`. `active` while a player points at it.",
           "source": {
             "module": "./src/shared/ui/components/cMapVoteCard.ts",
             "symbol": "CMapVoteCard"
           },
-          "attributes": []
+          "attributes": [
+            {
+              "name": "active",
+              "description": "",
+              "value": {
+                "type": "boolean"
+              }
+            }
+          ]
         },
         {
           "name": "c-memory-card",
@@ -568,7 +583,7 @@
         },
         {
           "name": "c-player-tag",
-          "description": "Coloured label bar at the top of a player's card: `<c-player-tag color=\"#e0533d\">Rußpfote</c-player-tag>`.\n`selected` marks it as the row the cursor is on: the name can then be changed with left/right.",
+          "description": "Coloured label bar at the top of a player's card: `<c-player-tag color=\"#e0533d\">Sootpaw</c-player-tag>`.\n`selected` marks it as the row the cursor is on: the name can then be changed with left/right.",
           "source": {
             "module": "./src/shared/ui/components/cPlayerTag.ts",
             "symbol": "CPlayerTag"
@@ -838,7 +853,7 @@
         },
         {
           "name": "c-stat-bars",
-          "description": "Small comparison bars in two columns, e.g. the driving values of a kart:\n`<c-stat-bars .bars=${[{ label: 'Tempo', ratio: 0.6 }]}></c-stat-bars>`",
+          "description": "Small comparison bars in two columns, e.g. the driving values of a kart:\n`<c-stat-bars .bars=${[{ label: 'Speed', ratio: 0.6 }]}></c-stat-bars>`",
           "source": {
             "module": "./src/shared/ui/components/cStatBars.ts",
             "symbol": "CStatBars"

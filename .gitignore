@@ -71,6 +71,6 @@ public/images/blacky/
 
 z_task
 
-# Playwright test screenshots
-artifacts/*.png
+# Generated QA artifacts
+artifacts/
 tools/https-preview/root.crt

@@ -108,7 +108,6 @@ export function aboutBody(): TemplateResult {
     <c-text tone="muted" size="s">${pages.noVetAdvice}</c-text>
     <c-header level="2">${pages.notAPurpose}</c-header>
     ${pages.notAPurposeText.map(paragraph)}
-    <c-text tone="soft" relaxed>Much love, Reschosan</c-text>
   </c-scroll>`;
 }
 

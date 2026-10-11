@@ -17,7 +17,7 @@ test('lobby button opens the about page without photos and back returns to the s
 
   await expect(page.locator('[data-testid=menu] > c-header')).toHaveText('Über Blacky');
   const story = page.locator('[data-testid=menu] c-scroll');
-  await expect(story).toContainText('Ich widme dieses Projekt meinem Kater Blacky.');
+  await expect(story).toContainText('Blacky ist ein Kater aus der Ukraine.');
   await expect(story).toContainText('Was ist das eigentlich?');
   await expect(story.locator('img')).toHaveCount(0);
   await page.waitForLoadState('networkidle');
@@ -29,7 +29,7 @@ test('lobby button opens the about page without photos and back returns to the s
   await story.evaluate((area) => {
     area.scrollTop = area.scrollHeight;
   });
-  await expect(story).toContainText('Much love, Reschosan');
+  await expect(story).toContainText('Das ist ein persönliches Projekt.');
   await page.screenshot({ path: 'artifacts/about-page.png' });
 
   await page.locator('[data-option-id="aboutBack"]').click();

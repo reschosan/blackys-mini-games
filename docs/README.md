@@ -4,6 +4,7 @@ This directory is the public, English documentation for the source repository.
 
 - [Architecture](ARCHITECTURE.md): runtime, input, networking, localization, and module boundaries.
 - [Testing](TESTING.md): checks for source changes and release candidates.
+- [Developer scripts](../scripts/README.md): generated component metadata and local performance comparisons.
 - [Credits](CREDITS.md): third-party assets, their licenses, and modifications.
 - [Release status](RELEASE.md): what is verified and what remains before a public playable build.
 - [Project overview](../README.md): games, controls, setup, and commands.

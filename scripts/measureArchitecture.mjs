@@ -2,7 +2,9 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { chromium } from '@playwright/test';
 
 const urls = process.argv.slice(2);
-if (urls.length !== 2) throw new Error('Usage: node scripts/measureArchitecture.mjs <baseline-url> <current-url>');
+const mapIndex = Number(process.env.CAT_KART_MAP_INDEX ?? 1);
+if (urls.length !== 2 || !Number.isInteger(mapIndex) || mapIndex < 0)
+  throw new Error('Usage: CAT_KART_MAP_INDEX=1 node scripts/measureArchitecture.mjs <baseline-url> <current-url>');
 const output = '.dev-screenshots/architecture-performance';
 await mkdir(output, { recursive: true });
 const browser = await chromium.launch({ channel: 'chromium', headless: true });
@@ -38,7 +40,8 @@ try {
         });
         await page.goto(url);
         await page.waitForLoadState('networkidle');
-        await page.evaluate(() => window.__game.startEnduranceRace(2, false));
+        const started = await page.evaluate((index) => window.__game.startEnduranceRace(index, false), mapIndex);
+        if (!started) throw new Error(`Could not start endurance race for map ${mapIndex}`);
         await page.waitForFunction(() => window.__game.getState().houseModelLoaded);
         await page.waitForFunction(() => window.__game.getState().raceTimeSeconds >= 8.1, undefined, { timeout: 30000 });
         const result = await page.evaluate(() => {
@@ -75,7 +78,7 @@ try {
         await context.close();
       }
     }
-    reports.push({ url, runs });
+    reports.push({ url, mapIndex, runs });
   }
   await writeFile(`${output}/report.json`, JSON.stringify(reports, null, 2));
   console.log(JSON.stringify(reports, null, 2));

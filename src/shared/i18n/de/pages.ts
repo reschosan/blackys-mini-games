@@ -3,9 +3,9 @@ import type { Texts } from '../en';
 
 export const pages: Texts['pages'] = {
   aboutStory: [
-    'Ich widme dieses Projekt meinem Kater Blacky. Er wurde in der Ukraine vermutlich 2021 auf die Straße gesetzt und von einem örtlichen Tierschutzverein aufgenommen. Wir haben ihn zu uns geholt und ihm ein neues Zuhause gegeben.',
-    'In den letzten Jahren kamen einige Herausforderungen dazu. Er kam mit einer Augenverletzung an und wurde gepflegt. Monate später wurde Calici festgestellt, seine Zähne waren von FORL befallen – mittlerweile sind sie alle gezogen. 2025 kam die Diagnose Asthma dazu. Nach Jahren der Behandlung war er wieder halbwegs fit und wir wollten ihm einen Kumpel suchen. Leider bekamen wir eine Absage, weil bei ihm FIV festgestellt wurde. Aber keine Sorge: Wir finden ihm einen Kumpel.',
-    'Heute hat er gesicherten Freigang und lebt nach Jahren voller Herausforderungen, für ihn und finanziell wegen der Tierarztkosten auch für uns, halbwegs gesund.',
+    'Blacky ist ein Kater aus der Ukraine. Vermutlich 2021 wurde er auf die Straße gesetzt und von einem örtlichen Tierschutzverein aufgenommen. Später fand er ein neues Zuhause.',
+    'In den letzten Jahren kamen einige Herausforderungen dazu. Er kam mit einer Augenverletzung an und wurde gepflegt. Monate später wurde Calici festgestellt, seine Zähne waren von FORL befallen – mittlerweile sind sie alle gezogen. 2025 kam die Diagnose Asthma dazu. Nach Jahren der Behandlung ging es ihm wieder besser. Eine Anfrage für einen Katzenkumpel wurde wegen seiner FIV-Diagnose zunächst abgelehnt. Die Suche geht weiter.',
+    'Heute hat er gesicherten Freigang und lebt nach Jahren voller Herausforderungen halbwegs gesund.',
     'Blacky hat Narben in der Seele aus seiner Zeit als Straßenkatze. Er hat Angst vor Hunden, ist extrem eifersüchtig und spielt, sobald er wach ist.',
   ],
   whatIsThat: 'Was ist das eigentlich?',
@@ -13,7 +13,7 @@ export const pages: Texts['pages'] = {
     calici: {
       explanation:
         'Das Feline Calicivirus ist ein ansteckendes Virus und einer der Erreger des Katzenschnupfens. Typisch sind Niesen, Fieber und schmerzhafte Entzündungen im Maul. Bei manchen Katzen bleibt die Infektion dauerhaft bestehen.',
-      sourceLabel: 'Virus-Steckbrief (ICTV, englisch)',
+      sourceLabel: 'Cornell College of Veterinary Medicine (englisch)',
     },
     forl: {
       explanation:
@@ -35,8 +35,8 @@ export const pages: Texts['pages'] = {
   noVetAdvice: 'Das ist allgemeine Information und ersetzt keine tierärztliche Beratung.',
   notAPurpose: 'Ein Tier ist kein Zweck',
   notAPurposeText: [
-    'Die Behandlungen waren sehr teuer. Deshalb: Hol dir ein Haustier nie zu einem bestimmten Zweck oder auf einen Impuls. Ein Tier ist ein Teil der Familie, mit allem, was dazugehört, auch wenn es krank wird.',
-    'Dieses Projekt ist privat. Wenn du überlegst, eine Katze zu adoptieren: Frag in deinem Tierheim oder bei einem Tierschutzverein in deiner Nähe nach.',
+    'Hol dir ein Haustier nie zu einem bestimmten Zweck oder aus einem Impuls. Ein Tier ist ein Teil der Familie, mit allem, was dazugehört, auch wenn es krank wird.',
+    'Das ist ein persönliches Projekt. Wenn du überlegst, eine Katze zu adoptieren: Frag in deinem Tierheim oder bei einem Tierschutzverein in deiner Nähe nach.',
   ],
   privacy: [
     {

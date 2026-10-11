@@ -91,9 +91,11 @@ describe('menu content', () => {
     expect(text).toContain('Toon Cat');
   });
 
-  it('shows the Blacky dedication without photos or a contact address', () => {
+  it('shows Blacky’s story without a dedication, photos or a contact address', () => {
     const text = templateText(aboutBody());
-    expect(text).toContain('Ich widme dieses Projekt meinem Kater Blacky.');
+    expect(text).toContain('Blacky ist ein Kater aus der Ukraine.');
+    expect(text).not.toContain('Ich widme');
+    expect(text).not.toContain('Much love');
     expect(text).not.toContain('<c-photo');
     expect(text).not.toContain('mailto:');
   });

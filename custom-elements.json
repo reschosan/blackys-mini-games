@@ -75,7 +75,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`<c-button label=\"Zurück\" mode=\"cancel\" size=\"l\" compact></c-button>`; `active` marks the\noption currently selected with keyboard, gamepad or phone.",
+          "description": "`<c-button label=\"Back\" mode=\"cancel\" size=\"l\" compact></c-button>`; `active` marks the\noption currently selected with keyboard, gamepad or phone.",
           "name": "CButton",
           "members": [
             {
@@ -177,6 +177,17 @@
                   "text": "string"
                 }
               }
+            },
+            {
+              "kind": "method",
+              "name": "widthClasses",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "string"
+                }
+              },
+              "description": "`block` fills the row, `grow` fills the space its host gets, otherwise the button is as wide as its text."
             }
           ],
           "attributes": [
@@ -467,7 +478,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "`<c-checkbox label=\"Ton\" ?checked=${on}></c-checkbox>`; the native `change` event bubbles up.",
+          "description": "`<c-checkbox label=\"Sound\" ?checked=${on}></c-checkbox>`; the native `change` event bubbles up.",
           "name": "CCheckbox",
           "members": [
             {
@@ -548,7 +559,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Small status label: `<c-chip mode=\"success\">Bereit</c-chip>`. `mode=\"color\"` paints it in\n`color` (a player colour); `dim` fades it, `outlined` adds a ring (e.g. a locked-in vote).",
+          "description": "Small status label: `<c-chip mode=\"success\">Ready</c-chip>`. `mode=\"color\"` paints it in\n`color` (a player colour); `dim` fades it, `outlined` adds a ring (e.g. a locked-in vote).",
           "name": "CChip",
           "members": [
             {
@@ -723,7 +734,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "The same cross on every phone screen that is not the race: four arrows around a round OK. Keys that do nothing on the\ncurrent screen stay where they are but are dimmed and disabled, so the thumb always finds the same place.\n`<c-dpad up=\"on\" down=\"on\" left=\"dim\" right=\"dim\" ok=\"on\" ok-label=\"Zurück\"></c-dpad>`. The buttons have the ids\n`pad-up`, `pad-down`, `pad-left`, `pad-right` and `pad-ok`; the controller script binds them by screen.",
+          "description": "The same cross on every phone screen that is not the race: four arrows around a round OK. Keys that do nothing on the\ncurrent screen stay where they are but are dimmed and disabled, so the thumb always finds the same place.\n`<c-dpad up=\"on\" down=\"on\" left=\"dim\" right=\"dim\" ok=\"on\" ok-label=\"Back\"></c-dpad>`. The buttons have the ids\n`pad-up`, `pad-down`, `pad-left`, `pad-right` and `pad-ok`; the controller script binds them by screen.",
           "name": "CDpad",
           "members": [
             {
@@ -1089,6 +1100,17 @@
             },
             {
               "kind": "field",
+              "name": "name",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "description": "The cat's name, shown in place of the place in a game where the place says nothing until the end.",
+              "default": "''",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
               "name": "status",
               "privacy": "public",
               "type": {
@@ -1171,6 +1193,15 @@
               },
               "default": "''",
               "fieldName": "place"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "description": "The cat's name, shown in place of the place in a game where the place says nothing until the end.",
+              "default": "''",
+              "fieldName": "name"
             },
             {
               "name": "status",
@@ -1559,7 +1590,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Full-screen loading screen with a cat kart driving on the spot: `<c-loading-screen\nlabel=\"Naturpfad wird geladen\" tip=\"…\"></c-loading-screen>`. `leaving` fades it out.",
+          "description": "Full-screen loading screen with a cat kart driving on the spot: `<c-loading-screen\nlabel=\"Loading nature trail\" tip=\"…\"></c-loading-screen>`. `leaving` fades it out.",
           "name": "CLoadingScreen",
           "members": [
             {
@@ -1569,7 +1600,6 @@
               "type": {
                 "text": "string"
               },
-              "default": "'Lädt …'",
               "attribute": "label"
             },
             {
@@ -1620,7 +1650,6 @@
               "type": {
                 "text": "string"
               },
-              "default": "'Lädt …'",
               "fieldName": "label"
             },
             {
@@ -1681,9 +1710,20 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Card of the map vote: `<c-map-vote-card><c-preview-frame …/><c-header level=\"3\">Name</c-header>\n<c-list …>markers</c-list></c-map-vote-card>`.",
+          "description": "Card of the map vote: `<c-map-vote-card active><c-preview-frame …/><c-header level=\"3\">Name</c-header>\n<c-list …>markers</c-list></c-map-vote-card>`. `active` while a player points at it.",
           "name": "CMapVoteCard",
           "members": [
+            {
+              "kind": "field",
+              "name": "active",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "active",
+              "reflects": true
+            },
             {
               "kind": "method",
               "name": "hostClasses",
@@ -1693,6 +1733,16 @@
                   "text": "string"
                 }
               }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "active"
             }
           ],
           "superclass": {
@@ -2028,7 +2078,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Coloured label bar at the top of a player's card: `<c-player-tag color=\"#e0533d\">Rußpfote</c-player-tag>`.\n`selected` marks it as the row the cursor is on: the name can then be changed with left/right.",
+          "description": "Coloured label bar at the top of a player's card: `<c-player-tag color=\"#e0533d\">Sootpaw</c-player-tag>`.\n`selected` marks it as the row the cursor is on: the name can then be changed with left/right.",
           "name": "CPlayerTag",
           "members": [
             {
@@ -2977,7 +3027,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Small comparison bars in two columns, e.g. the driving values of a kart:\n`<c-stat-bars .bars=${[{ label: 'Tempo', ratio: 0.6 }]}></c-stat-bars>`",
+          "description": "Small comparison bars in two columns, e.g. the driving values of a kart:\n`<c-stat-bars .bars=${[{ label: 'Speed', ratio: 0.6 }]}></c-stat-bars>`",
           "name": "CStatBars",
           "members": [
             {
