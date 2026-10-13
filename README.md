@@ -8,7 +8,12 @@ Blacky is a black cat from Ukraine. His story appears on the “About Blacky” 
 
 The public project documentation starts in [`docs/`](docs/README.md).
 
-![Four cats racing karts on the farm course](docs/images/race-farm.png)
+<p align="center">
+  <img src="docs/images/race-forest.jpg" alt="Race through the forest: cats in karts on a grassy track with boost sparks" width="49%">
+  <img src="docs/images/race-moon-base.jpg" alt="Race on the moon base: four karts on a metal track with neon barriers" width="49%">
+  <img src="docs/images/football.jpg" alt="Football: two teams of cats in karts push a big ball across the pitch" width="49%">
+  <img src="docs/images/lava-kart.jpg" alt="The floor is lava: karts on glowing tiles above a lava sea" width="49%">
+</p>
 
 ## Start (local)
 
