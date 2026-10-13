@@ -32,7 +32,7 @@ function isNodeReached(map: MapConfig, nodes: readonly RouteNode[], index: numbe
   const next = nodes[index + 1];
   const matchesLevel = target?.levelId === state.levelId || next?.levelId === state.levelId;
   if (!target || !matchesLevel) return false;
-  return reachedOrPassedRouteNode(nodes, index, state, reachDistance, Math.max(reachDistance * 2, map.driveableWidth ?? 0));
+  return reachedOrPassedRouteNode(nodes, index, state, reachDistance, Math.max(reachDistance * 2, map.driveableWidth));
 }
 
 /** Advances the route node once it is reached or passed, and returns the node to aim for. */

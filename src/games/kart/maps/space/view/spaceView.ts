@@ -91,7 +91,7 @@ function centreDashSpots(course: MapConfig): DashMatrices {
 
 function addRoute(group: THREE.Group, course: MapConfig, bin: Disposable[]): void {
   const route = texturedMaterial(bin, 'plating', SPACE_ROUTE, 0.3);
-  for (const surface of course.driveableSurfaces ?? []) group.add(plane(surface, route, 0, SPACE_ROUTE.tileMeters));
+  for (const surface of course.driveableSurfaces) group.add(plane(surface, route, 0, SPACE_ROUTE.tileMeters));
   const dashes = centreDashSpots(course);
   const glow = basicMaterial(bin, SPACE_CENTRE_DASHES.color);
   const { lengthMeters, widthMeters } = SPACE_CENTRE_DASHES;

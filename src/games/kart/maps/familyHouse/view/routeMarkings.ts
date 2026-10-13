@@ -83,7 +83,7 @@ function edgeTapeMesh(map: MapConfig, points: readonly THREE.Vector2[], side: nu
     const after = points[Math.min(points.length - 1, pointIndex + 1)]!;
     const direction = after.clone().sub(before).normalize();
     for (const edge of [-0.5, 0.5]) {
-      const offset = (side * (map.driveableWidth ?? 4.5)) / 2 + edge * (map.routeMarkings?.edgeWidth ?? 0.12);
+      const offset = (side * map.driveableWidth) / 2 + edge * (map.routeMarkings?.edgeWidth ?? 0.12);
       vertices.push(point.x - direction.y * offset, 0, point.y + direction.x * offset);
     }
     if (pointIndex > 0) {

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { circleVsAabb, rectToAabb, resolveBodyVsBody, resolveBodyVsRects, type Body } from '../../../src/games/kart/maps/shared/collision';
 import { RING_TEST_MAP } from '../../support/ringTestMap';
-import { collidableRects, isOnCarpet } from '../../../src/games/kart/maps/shared/surface';
+import { collidableRects, isOnRouteSurface } from '../../../src/games/kart/maps/shared/surface';
 import { KART_DIMENSIONS } from '../../../src/shared/config/kart';
 import { stepAllKarts } from '../../../src/games/kart/kart/kartSimulation';
 import { createKartState } from '../../../src/games/kart/kart/kartState';
@@ -73,25 +73,25 @@ describe('ring test map', () => {
     const centralFurniture = ['Sofa', 'Couchtisch'];
     for (const obstacle of RING_TEST_MAP.obstacles) {
       if (!centralFurniture.includes(obstacle.name)) continue;
-      expect(isOnCarpet(RING_TEST_MAP, obstacle.rect.x, obstacle.rect.z)).toBe(false);
+      expect(isOnRouteSurface(RING_TEST_MAP, obstacle.rect.x, obstacle.rect.z)).toBe(false);
     }
   });
 
-  it('keeps every start position on the carpet and clear of obstacles', () => {
+  it('keeps every start position on the route and clear of obstacles', () => {
     for (const start of RING_TEST_MAP.startPositions) {
-      expect(isOnCarpet(RING_TEST_MAP, start.x, start.z)).toBe(true);
+      expect(isOnRouteSurface(RING_TEST_MAP, start.x, start.z)).toBe(true);
       const body = bodyAt(start.x, start.z, 0, 0);
       expect(resolveBodyVsRects(body, 0.7, collidableRects(RING_TEST_MAP), 0)).toBe(false);
     }
   });
 
-  it('offers a carpet ring wide enough for four karts side by side', () => {
-    expect(RING_TEST_MAP.carpet.routeWidth).toBeGreaterThanOrEqual(KART_DIMENSIONS.width * 4);
+  it('offers a ring wide enough for four karts side by side', () => {
+    expect(RING_TEST_MAP.driveableWidth).toBeGreaterThanOrEqual(KART_DIMENSIONS.width * 4);
   });
 
-  it('keeps every waypoint on the carpet and clear of obstacles', () => {
+  it('keeps every waypoint on the route and clear of obstacles', () => {
     for (const waypoint of RING_TEST_MAP.waypoints) {
-      expect(isOnCarpet(RING_TEST_MAP, waypoint.x, waypoint.z)).toBe(true);
+      expect(isOnRouteSurface(RING_TEST_MAP, waypoint.x, waypoint.z)).toBe(true);
       const body = bodyAt(waypoint.x, waypoint.z, 0, 0);
       expect(resolveBodyVsRects(body, 1.5, collidableRects(RING_TEST_MAP), 0)).toBe(false);
     }

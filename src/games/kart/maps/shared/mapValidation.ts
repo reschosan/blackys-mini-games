@@ -1,7 +1,7 @@
 import { KART_COLLIDER_RADIUS } from '../../../../shared/config/kart';
 import type { Gate, Rect, MapConfig } from './mapConfig';
 import { isInsideRect } from './collision';
-import { carpetOuterRect, isOnRouteSurface, routeSurfaceWidth } from './surface';
+import { isOnRouteSurface } from './surface';
 
 export interface MapValidationError {
   readonly rule: string;
@@ -24,17 +24,15 @@ export function validateMap(map: MapConfig): readonly MapValidationError[] {
 }
 
 function validateRouteWidth(map: MapConfig): MapValidationError[] {
-  if (routeSurfaceWidth(map) >= KART_DIAMETER) return [];
+  if (map.driveableWidth >= KART_DIAMETER) return [];
   return [error('routeWidth', `${map.name}: route width must be at least one kart diameter (${KART_DIAMETER.toFixed(2)}m).`)];
 }
 
 function validateStartPositions(map: MapConfig): MapValidationError[] {
   const errors: MapValidationError[] = [];
-  const surfaceRule = map.driveableSurfaces ? 'startOnMap' : 'startOnCarpet';
-
   map.startPositions.forEach((start, index) => {
     if (!isOnRouteSurface(map, start.x, start.z)) {
-      errors.push(error(surfaceRule, `${map.name}: start position ${index + 1} must sit on the driveable route.`));
+      errors.push(error('startOnMap', `${map.name}: start position ${index + 1} must sit on the driveable route.`));
     }
     if (isInsideAnyObstacle(map, start.x, start.z)) {
       errors.push(error('startObstacle', `${map.name}: start position ${index + 1} must not sit inside furniture.`));
@@ -62,14 +60,13 @@ function validateStartOverlaps(map: MapConfig): MapValidationError[] {
 
 function validateWaypoints(map: MapConfig): MapValidationError[] {
   const errors: MapValidationError[] = [];
-  const surfaceRule = map.driveableSurfaces ? 'waypointOnRoute' : 'waypointOnCarpet';
   if (map.waypoints.length < 3) {
     errors.push(error('waypointCount', `${map.name}: at least three waypoints are required.`));
   }
 
   map.waypoints.forEach((waypoint, index) => {
     if (!isOnRouteSurface(map, waypoint.x, waypoint.z)) {
-      errors.push(error(surfaceRule, `${map.name}: waypoint ${index + 1} must sit on the driveable route.`));
+      errors.push(error('waypointOnRoute', `${map.name}: waypoint ${index + 1} must sit on the driveable route.`));
     }
   });
 
@@ -87,8 +84,8 @@ function validateCheckpoints(map: MapConfig): MapValidationError[] {
       errors.push(error('checkpointLength', `${map.name}: checkpoint ${index + 1} must have a visible length.`));
       return;
     }
-    if (!gateCrossesCarpet(map, checkpoint)) {
-      errors.push(error('checkpointCrossesCarpet', `${map.name}: checkpoint ${index + 1} must cross the carpet ring.`));
+    if (!gateCrossesRoute(map, checkpoint)) {
+      errors.push(error('checkpointCrossesRoute', `${map.name}: checkpoint ${index + 1} must cross the route.`));
     }
   });
 
@@ -97,12 +94,11 @@ function validateCheckpoints(map: MapConfig): MapValidationError[] {
 
 function validateItemBoxes(map: MapConfig): MapValidationError[] {
   const errors: MapValidationError[] = [];
-  const surfaceRule = map.driveableSurfaces ? 'itemOnRoute' : 'itemOnCarpet';
-  const maxDistanceFromLine = routeSurfaceWidth(map) / 2 + KART_COLLIDER_RADIUS;
+  const maxDistanceFromLine = map.driveableWidth / 2 + KART_COLLIDER_RADIUS;
 
   map.itemBoxes.forEach((spawn, index) => {
     if (!isOnRouteSurface(map, spawn.x, spawn.z)) {
-      errors.push(error(surfaceRule, `${map.name}: item box ${index + 1} must sit on the driveable route.`));
+      errors.push(error('itemOnRoute', `${map.name}: item box ${index + 1} must sit on the driveable route.`));
     }
     if (isInsideAnyObstacle(map, spawn.x, spawn.z)) {
       errors.push(error('itemObstacle', `${map.name}: item box ${index + 1} must not sit inside furniture.`));
@@ -137,7 +133,7 @@ function gateLength(gate: Gate): number {
   return distance(gate.ax, gate.az, gate.bx, gate.bz);
 }
 
-function gateCrossesCarpet(map: MapConfig, gate: Gate): boolean {
+function gateCrossesRoute(map: MapConfig, gate: Gate): boolean {
   for (let index = 0; index <= GATE_SAMPLE_COUNT; index += 1) {
     const t = index / GATE_SAMPLE_COUNT;
     const x = gate.ax + (gate.bx - gate.ax) * t;
@@ -152,36 +148,11 @@ function isInsideAnyObstacle(map: MapConfig, x: number, z: number): boolean {
 }
 
 function rectTouchesRoute(map: MapConfig, rect: Rect): boolean {
-  if (map.driveableSurfaces) return map.driveableSurfaces.some((surface) => rectsOverlap(rect, surface));
-  const half = { x: rect.width / 2, z: rect.depth / 2 };
-  const samplePoints = [
-    { x: rect.x, z: rect.z },
-    { x: rect.x - half.x, z: rect.z - half.z },
-    { x: rect.x + half.x, z: rect.z - half.z },
-    { x: rect.x - half.x, z: rect.z + half.z },
-    { x: rect.x + half.x, z: rect.z + half.z },
-  ];
-  return samplePoints.some((point) => isOnRouteSurface(map, point.x, point.z)) || rectContainsRingCorner(map, rect);
+  return map.driveableSurfaces.some((surface) => rectsOverlap(rect, surface));
 }
 
 function rectsOverlap(first: Rect, second: Rect): boolean {
   return Math.abs(first.x - second.x) < (first.width + second.width) / 2 && Math.abs(first.z - second.z) < (first.depth + second.depth) / 2;
-}
-
-function rectContainsRingCorner(map: MapConfig, rect: Rect): boolean {
-  const outer = carpetOuterRect(map);
-  const inner = map.carpet.island;
-  return [...rectCorners(outer), ...rectCorners(inner)].some((corner) => isInsideRect(rect, corner.x, corner.z));
-}
-
-function rectCorners(rect: Rect): readonly { readonly x: number; readonly z: number }[] {
-  const half = { x: rect.width / 2, z: rect.depth / 2 };
-  return [
-    { x: rect.x - half.x, z: rect.z - half.z },
-    { x: rect.x + half.x, z: rect.z - half.z },
-    { x: rect.x - half.x, z: rect.z + half.z },
-    { x: rect.x + half.x, z: rect.z + half.z },
-  ];
 }
 
 function distanceToWaypointLoop(map: MapConfig, x: number, z: number): number {

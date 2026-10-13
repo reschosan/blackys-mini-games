@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { createModelLoader } from '../../../../../shared/effects/modelLoader';
 import { assetUrl } from '../../../../../shared/config/assets';
 import type { Rect, MapConfig } from '../../shared/mapConfig';
 import { NATURE_BOUNDARIES } from '../course';
@@ -87,7 +87,7 @@ function addTerrain(group: THREE.Group, map: MapConfig, detailMaps: boolean): vo
     for (const texture of [...Object.values(groundMaps), ...Object.values(routeMaps)]) texture?.dispose();
   };
   group.add(plane(ground, floor, -0.12));
-  for (const surface of map.driveableSurfaces ?? []) group.add(plane(surface, route, 0, NATURE_ROUTE.tileMeters));
+  for (const surface of map.driveableSurfaces) group.add(plane(surface, route, 0, NATURE_ROUTE.tileMeters));
 }
 
 function layLogAlongAxis(log: THREE.Mesh, alongX: boolean): void {
@@ -209,7 +209,11 @@ function addProps(group: THREE.Group, map: MapConfig, detail: MapDetail): void {
   const coverShare = detail.groundCoverShare;
   if (typeof window === 'undefined') return;
   assetPromise ??= Promise.all(
-    ASSETS.map((asset) => new GLTFLoader().loadAsync(assetUrl(`models/nature-pack/${encodeURIComponent(asset)}.glb`)).then((gltf) => gltf.scene)),
+    ASSETS.map((asset) =>
+      createModelLoader()
+        .loadAsync(assetUrl(`models/nature-pack/${encodeURIComponent(asset)}.glb`))
+        .then((gltf) => gltf.scene),
+    ),
   );
   void assetPromise
     .then((sources) => {

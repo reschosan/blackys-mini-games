@@ -60,6 +60,7 @@ new folder there plus an entry in `LANGUAGES` (`src/shared/i18n/language.ts`), a
 | `npm ci`, then `npm run dev` | Start the game in the dev server (with a tuning panel) |
 | `npm run build`, `npm run preview` | Build the static page and serve it like production |
 | `npm run check` | Typecheck, lint, formatting (Prettier), layer rules, unused code, unit tests (Vitest) |
+| `npm run test:ai` | All-AI race simulations on every map (about two minutes; after changes to driving, AI, maps or items) |
 | `npm run format` | Format the code with Prettier |
 | `npx playwright test --workers=1` | Browser tests (gamepads and touch are simulated) |
 | `npm run test:e2e:layout` | Layout audit of every screen on every size, in every language |

@@ -9,6 +9,7 @@ import { FAMILY_HOUSE } from '../../../src/games/kart/maps/familyHouse/map';
 import { createItemBoxStates, stepItemBoxes } from '../../../src/games/kart/items/itemBoxes';
 import { createRuntimeItems } from '../../../src/shared/config/items';
 import { createRng } from '../../../src/shared/core/rng';
+import { ringSurfaces } from '../../support/ringTestMap';
 
 const STEP = 1 / 60;
 const MAP: MapConfig = {
@@ -16,7 +17,8 @@ const MAP: MapConfig = {
   room: { x: 0, z: 0, width: 40, depth: 40 },
   wallHeight: 3,
   wallThickness: 1,
-  carpet: { island: { x: 0, z: 0, width: 10, depth: 10 }, routeWidth: 5 },
+  driveableSurfaces: ringSurfaces({ x: 0, z: 0, width: 10, depth: 10 }, 5),
+  driveableWidth: 5,
   walls: buildWalls({ x: 0, z: 0, width: 40, depth: 40 }, 1),
   obstacles: [],
   checkpoints: [],

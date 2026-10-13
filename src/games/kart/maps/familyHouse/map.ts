@@ -155,7 +155,6 @@ export const FAMILY_HOUSE: MapConfig = withMapPlacements(
     room: rect(0, 0.23, 2.8, 4.3),
     wallHeight: 4.5,
     wallThickness: 4,
-    carpet: { island: rect(0, 0, 0.1, 0.1), routeWidth: 12 },
     driveableWidth: 4.5,
     driveableSurfaces: [footprint, outside],
     levels: levels.map((level) => ({

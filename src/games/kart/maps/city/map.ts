@@ -11,7 +11,6 @@ export const CITY: MapConfig = withMapPlacements(
     room: CITY_ROOM,
     wallHeight: 1.6,
     wallThickness: 2,
-    carpet: { island: { x: 0, z: 0, width: 0, depth: 0 }, routeWidth: CITY_WIDTH },
     driveableSurfaces: CITY_SURFACES,
     driveableWidth: CITY_WIDTH,
     walls: [...CITY_BOUNDARIES, ...CITY_BARRIERS],

@@ -11,7 +11,6 @@ export const SPACE: MapConfig = withMapPlacements(
     room: SPACE_ROOM,
     wallHeight: 1.6,
     wallThickness: 2,
-    carpet: { island: { x: 0, z: 0, width: 0, depth: 0 }, routeWidth: SPACE_WIDTH },
     driveableSurfaces: SPACE_SURFACES,
     driveableWidth: SPACE_WIDTH,
     walls: [...SPACE_BOUNDARIES, ...SPACE_BARRIERS],

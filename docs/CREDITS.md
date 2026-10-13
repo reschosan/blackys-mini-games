@@ -16,7 +16,7 @@ This page lists third-party assets used by the game and the licenses that apply 
 - **Source:** [House Interiors on Poly Pizza](https://poly.pizza/m/9UGOIbCy8C)
 - **License:** [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
 - **File:** `public/models/house-interiors/house-interiors.glb`
-- **Changes:** Scaled consistently and placed as the three floors of the family house map.
+- **Changes:** Scaled consistently and placed as the three floors of the family house map. The geometry is compressed with `EXT_meshopt_compression`.
 
 ## Quaternius model packs
 
@@ -30,7 +30,7 @@ The following packs are by [Quaternius](https://quaternius.com), distributed und
 | Ultimate Fantasy RTS | Medieval town buildings, castle, market, towers, and harbor | `public/models/town-pack/` | Models are scaled and instanced |
 | Cyberpunk Game Kit | Streetlights, signs, antennae, air conditioners, and platforms in the night city | `public/models/city-pack/` | Models are scaled and instanced |
 
-The four fighter-jet models come from Ultimate Space Kit: `Spaceship.glb`, `Spaceship-Jqfed124pQ.glb`, `Spaceship-u105mYHLHU.glb`, and `Spaceship-VSxUAFhzbA.glb`. Their game assignments are in `src/shared/config/planeTypes.ts`. Arena scenery reuses models from the Nature, Farm, and Fantasy packs.
+The four fighter-jet models come from Ultimate Space Kit: `Spaceship.glb`, `Spaceship-Jqfed124pQ.glb`, `Spaceship-u105mYHLHU.glb`, and `Spaceship-VSxUAFhzbA.glb`. Their game assignments are in `src/shared/config/planeTypes.ts`. Arena scenery reuses models from the Nature, Farm, and Fantasy packs. All files of these packs are compressed with `scripts/compressModels.mjs`: textures as WebP, geometry with `EXT_meshopt_compression`.
 
 ## Poly Haven ground textures
 

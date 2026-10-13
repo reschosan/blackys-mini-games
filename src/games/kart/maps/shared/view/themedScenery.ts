@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { createModelLoader } from '../../../../../shared/effects/modelLoader';
 import { assetUrl } from '../../../../../shared/config/assets';
 import type { MapConfig, Rect } from '../mapConfig';
 import { keepForShare } from './mapDetail';
@@ -113,7 +113,7 @@ export function pointsAlong(rect: Rect, spacingMeters: number): { x: number; z: 
 /** The direction from a point to the nearest bit of driveable route, so a house can turn its front towards the street. */
 export function directionToRoute(course: MapConfig, x: number, z: number): { x: number; z: number } {
   let best = { x: 0, z: 1, distance: Number.POSITIVE_INFINITY };
-  for (const rect of course.driveableSurfaces ?? []) {
+  for (const rect of course.driveableSurfaces) {
     const nearestX = Math.min(Math.max(x, rect.x - rect.width / 2), rect.x + rect.width / 2);
     const nearestZ = Math.min(Math.max(z, rect.z - rect.depth / 2), rect.z + rect.depth / 2);
     const distance = Math.hypot(nearestX - x, nearestZ - z);
@@ -146,7 +146,7 @@ function loadModels(refs: readonly ModelRef[]): Promise<LoadedModels> {
       const key = modelKey(ref);
       let promise = modelPromises.get(key);
       if (!promise) {
-        promise = new GLTFLoader()
+        promise = createModelLoader()
           .loadAsync(assetUrl(`${ref.directory}/${encodeURIComponent(ref.name)}.glb`))
           .then((gltf) => ({ scene: gltf.scene, animations: gltf.animations }));
         modelPromises.set(key, promise);
@@ -325,5 +325,5 @@ export function groundAndRoute(
   const groundRect: Rect = { x: course.room.x, z: course.room.z, width: ground.size.width, depth: ground.size.depth };
   group.add(plane(groundRect, texturedMaterial(bin, ground.pattern, ground.style, 0), ground.level, ground.style.tileMeters));
   const routeMaterial = texturedMaterial(bin, route.pattern, route.style, route.metalness ?? 0.05);
-  for (const surface of course.driveableSurfaces ?? []) group.add(plane(surface, routeMaterial, 0, route.style.tileMeters));
+  for (const surface of course.driveableSurfaces) group.add(plane(surface, routeMaterial, 0, route.style.tileMeters));
 }

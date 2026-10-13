@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { createModelLoader } from '../../../../../shared/effects/modelLoader';
 import { assetUrl } from '../../../../../shared/config/assets';
 import type { MapLevel, MapConfig } from '../../shared/mapConfig';
 import { HOUSE_MODEL_SCALE, HOUSE_WALL_CUTAWAY_HEIGHT } from '../settings';
@@ -26,7 +26,9 @@ function interiorMaterial(source: THREE.Material): THREE.Material {
 
 export function addHouseInterior(parent: THREE.Group, map: MapConfig): void {
   if (typeof window === 'undefined') return;
-  sourcePromise ??= new GLTFLoader().loadAsync(assetUrl('models/house-interiors/house-interiors.glb')).then((gltf) => gltf.scene);
+  sourcePromise ??= createModelLoader()
+    .loadAsync(assetUrl('models/house-interiors/house-interiors.glb'))
+    .then((gltf) => gltf.scene);
   void sourcePromise
     .then((source) => {
       if (parent.userData.disposed) return;

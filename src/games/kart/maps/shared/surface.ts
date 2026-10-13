@@ -4,16 +4,6 @@ import type { KartState } from '../../kart/kartState';
 import { windowJumpHeight } from './windowJumps';
 import { routeBankHeight, bankedCollisionRects } from './routeBanks';
 
-export function carpetOuterRect(map: MapConfig): Rect {
-  const { island, routeWidth } = map.carpet;
-  return {
-    x: island.x,
-    z: island.z,
-    width: island.width + routeWidth * 2,
-    depth: island.depth + routeWidth * 2,
-  };
-}
-
 export function collidableRects(map: MapConfig, levelId = 'ground'): readonly Rect[] {
   const level = map.levels?.find((candidate) => candidate.id === levelId);
   if (level) return map.routeBanks ? bankedCollisionRects(map, levelId, level.collisionRects) : level.collisionRects;
@@ -21,39 +11,19 @@ export function collidableRects(map: MapConfig, levelId = 'ground'): readonly Re
   return [...map.walls, ...map.obstacles.map((obstacle) => obstacle.rect)];
 }
 
-export function isOnCarpet(map: MapConfig, x: number, z: number): boolean {
-  return isInsideRect(carpetOuterRect(map), x, z) && !isInsideRect(map.carpet.island, x, z);
-}
-
 export function routeSurfaceSpeedFactor(map: MapConfig, x: number, z: number): number {
   const shoulder = map.shoulder;
-  if (!shoulder) return 1;
-  if (map.driveableSurfaces) {
-    if (!isOnRouteSurface(map, x, z)) return 1;
-    const clearance = map.driveableSurfaces.reduce((best, rect) => {
-      const margin = Math.min(rect.width / 2 - Math.abs(x - rect.x), rect.depth / 2 - Math.abs(z - rect.z));
-      return Math.max(best, margin);
-    }, -Infinity);
-    return clearance < routeSurfaceWidth(map) * shoulder.widthFraction ? shoulder.speedFactor : 1;
-  }
-  if (!isOnCarpet(map, x, z)) return 1;
-  const width = map.carpet.routeWidth * shoulder.widthFraction;
-  const outer = carpetOuterRect(map);
-  const island = map.carpet.island;
-  const fastOuter: Rect = { ...outer, width: outer.width - width * 2, depth: outer.depth - width * 2 };
-  const grassIsland: Rect = { ...island, width: island.width + width * 2, depth: island.depth + width * 2 };
-  return isInsideRect(fastOuter, x, z) && !isInsideRect(grassIsland, x, z) ? 1 : shoulder.speedFactor;
+  if (!shoulder || !isOnRouteSurface(map, x, z)) return 1;
+  const clearance = map.driveableSurfaces.reduce((best, rect) => {
+    const margin = Math.min(rect.width / 2 - Math.abs(x - rect.x), rect.depth / 2 - Math.abs(z - rect.z));
+    return Math.max(best, margin);
+  }, -Infinity);
+  return clearance < map.driveableWidth * shoulder.widthFraction ? shoulder.speedFactor : 1;
 }
 
 export function isOnRouteSurface(map: MapConfig, x: number, z: number, levelId?: string): boolean {
   const surfaces = map.levels?.find((level) => level.id === levelId)?.driveableSurfaces;
-  if (surfaces) return surfaces.some((surface) => isInsideRect(surface, x, z));
-  if (map.driveableSurfaces) return map.driveableSurfaces.some((surface) => isInsideRect(surface, x, z));
-  return isOnCarpet(map, x, z);
-}
-
-export function routeSurfaceWidth(map: MapConfig): number {
-  return map.driveableWidth ?? map.carpet.routeWidth;
+  return (surfaces ?? map.driveableSurfaces).some((surface) => isInsideRect(surface, x, z));
 }
 
 function elevationOnTransition(transition: StairTransition, x: number, z: number): number {

@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import { GLTFLoader, type GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import type { GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { createModelLoader } from '../../../../../shared/effects/modelLoader';
 import { clone as cloneSkinned } from 'three/examples/jsm/utils/SkeletonUtils.js';
 import { assetUrl } from '../../../../../shared/config/assets';
 import type { MapConfig } from '../../shared/mapConfig';
@@ -47,7 +48,7 @@ let modelsPromise: Promise<Models> | null = null;
 function loadSpaceModels(): Promise<Models> {
   modelsPromise ??= Promise.all(
     SPACE_ALL_MODELS.map(async (name) => {
-      const gltf = await new GLTFLoader().loadAsync(assetUrl(`${SPACE_MODEL_DIRECTORY}/${encodeURIComponent(name)}.glb`));
+      const gltf = await createModelLoader().loadAsync(assetUrl(`${SPACE_MODEL_DIRECTORY}/${encodeURIComponent(name)}.glb`));
       return [name, gltf] as const;
     }),
   ).then((entries) => new Map(entries));

@@ -43,7 +43,7 @@ export function hash(x: number, z: number): number {
 
 export function clearanceFromRoute(map: MapConfig, x: number, z: number): number {
   return Math.min(
-    ...(map.driveableSurfaces ?? []).map((rect) => {
+    ...map.driveableSurfaces.map((rect) => {
       const dx = Math.max(Math.abs(x - rect.x) - rect.width / 2, 0);
       const dz = Math.max(Math.abs(z - rect.z) - rect.depth / 2, 0);
       return Math.hypot(dx, dz);

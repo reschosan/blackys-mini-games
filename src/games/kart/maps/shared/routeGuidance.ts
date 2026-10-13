@@ -58,7 +58,7 @@ export function routeDrivingHint(map: MapConfig, pose: RoutePose & { readonly le
   const nodes = map.routeNodes;
   if (!nodes) return null;
   const current = currentRouteSegment(map, pose.levelId, nextCheckpoint, pose);
-  if (isOffRoute(nodes[current], nodes[current + 1], pose, map.driveableWidth ?? 4.5)) return t().race.backToRoute;
+  if (isOffRoute(nodes[current], nodes[current + 1], pose, map.driveableWidth)) return t().race.backToRoute;
   const { last } = routeSection(map, nextCheckpoint);
   let distance = 0;
   let previous = pose;

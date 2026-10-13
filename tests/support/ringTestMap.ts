@@ -20,7 +20,22 @@ const RING_MAP = {
 } satisfies MapSettings;
 
 const ROOM: Rect = { x: 0, z: 0, width: 176, depth: 136 };
+const ISLAND: Rect = { x: 0, z: 0, width: 72, depth: 56 };
 const WALL_THICKNESS = 1;
+
+/** A ring of `routeWidth` around `island` as four strips; the north and south ones span the whole outer width. */
+export function ringSurfaces(island: Rect, routeWidth: number): readonly Rect[] {
+  const outerWidth = island.width + routeWidth * 2;
+  const outerDepth = island.depth + routeWidth * 2;
+  const northSouthOffset = (island.depth + routeWidth) / 2;
+  const westEastOffset = (island.width + routeWidth) / 2;
+  return [
+    { x: island.x, z: island.z - northSouthOffset, width: outerWidth, depth: routeWidth },
+    { x: island.x, z: island.z + northSouthOffset, width: outerWidth, depth: routeWidth },
+    { x: island.x - westEastOffset, z: island.z, width: routeWidth, depth: outerDepth },
+    { x: island.x + westEastOffset, z: island.z, width: routeWidth, depth: outerDepth },
+  ];
+}
 
 export const RING_TEST_MAP: MapConfig = withMapPlacements(
   {
@@ -28,10 +43,8 @@ export const RING_TEST_MAP: MapConfig = withMapPlacements(
     room: ROOM,
     wallHeight: 3,
     wallThickness: WALL_THICKNESS,
-    carpet: {
-      island: { x: 0, z: 0, width: 72, depth: 56 },
-      routeWidth: RING_ROUTE_WIDTH,
-    },
+    driveableSurfaces: ringSurfaces(ISLAND, RING_ROUTE_WIDTH),
+    driveableWidth: RING_ROUTE_WIDTH,
     walls: buildWalls(ROOM, WALL_THICKNESS),
     obstacles: [
       { name: 'Sofa', rect: { x: 0, z: -16, width: 44, depth: 16 }, height: 1.6 },

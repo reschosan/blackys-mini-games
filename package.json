@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:ai": "AI_RACES=1 vitest run aiMapVerification aiLapTimes",
     "test:e2e": "playwright test",
     "test:e2e:preview": "playwright test --config playwright.preview.config.ts",
     "test:e2e:reality": "REALITY=1 playwright test e2e/realityCheck --workers=1",

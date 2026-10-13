@@ -13,7 +13,6 @@ export const NATURE: MapConfig = withMapPlacements(
     room: ROOM,
     wallHeight: 1.6,
     wallThickness: 2,
-    carpet: { island: { x: 0, z: 0, width: 0, depth: 0 }, routeWidth: NATURE_WIDTH },
     driveableSurfaces: NATURE_SURFACES,
     driveableWidth: NATURE_WIDTH,
     walls: [...NATURE_BOUNDARIES, ...NATURE_LOGS],

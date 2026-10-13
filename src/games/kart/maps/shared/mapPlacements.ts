@@ -123,7 +123,7 @@ function itemRow(map: MapConfig, placement: Extract<MapPlacement, { type: 'itemB
 }
 
 function ensureWithinRoute(map: MapConfig, lateral: number, halfWidth: number): void {
-  const available = map.routeBanks?.flatHalfWidth ?? (map.driveableWidth ?? map.carpet.routeWidth) / 2;
+  const available = map.routeBanks?.flatHalfWidth ?? map.driveableWidth / 2;
   if (Math.abs(lateral) + halfWidth > available) throw new Error(`${map.name}: placement does not fit within the flat route width.`);
 }
 
@@ -206,7 +206,7 @@ function createBoostField(map: MapConfig, placement: Extract<MapPlacement, { typ
 }
 
 function createSurfaceZone(map: MapConfig, placement: Extract<MapPlacement, { type: 'surfaceZone' }>, pose: PlacementPose): SurfaceZone {
-  const routeWidth = (map.routeBanks?.flatHalfWidth ?? (map.driveableWidth ?? map.carpet.routeWidth) / 2) * 2;
+  const routeWidth = (map.routeBanks?.flatHalfWidth ?? map.driveableWidth / 2) * 2;
   const width = placement.width ?? routeWidth;
   requirePositive(width, 'surface zone width');
   requirePositive(placement.length, 'surface zone length');

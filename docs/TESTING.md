@@ -5,6 +5,7 @@ Install dependencies with `npm install`. Browser tests use simulated gamepads an
 | Command | Checks |
 | --- | --- |
 | `npm run check` | TypeScript, ESLint, formatting, module boundaries, unused code, and Vitest |
+| `npm run test:ai` | All-AI race simulations on every map and difficulty: no stuck karts, lap times within target (about two minutes) |
 | `npm run build` | Production TypeScript and Vite build |
 | `npx playwright test --workers=1` | Browser behavior, including lobby, menus, games, gamepad simulation, and touch |
 | `npm run test:e2e:layout` | All configured screen sizes and both languages |
@@ -12,7 +13,7 @@ Install dependencies with `npm install`. Browser tests use simulated gamepads an
 | `npm run test:e2e:reality` | Selected end-to-end game and device profiles |
 | `npm run test:e2e:sweep` | Screenshot sweep over the game and device matrix |
 
-After a UI change, inspect the changed screen visually on desktop, phone, and tablet as applicable. The layout audit checks overlap, clipping, reachability, target size, text size, contrast, and horizontal overflow. For gameplay changes, play with a real controller and check the affected devices; automated tests cannot judge game feel.
+After a UI change, inspect the changed screen visually on desktop, phone, and tablet as applicable. The layout audit checks overlap, clipping, reachability, target size, text size, contrast, and horizontal overflow. Run `npm run test:ai` after changes to driving, AI, maps, or items; `npm run check` leaves these simulations out to stay fast. For gameplay changes, play with a real controller and check the affected devices; automated tests cannot judge game feel.
 
 The local HTTPS preview in [`tools/https-preview/`](../tools/https-preview/README.md) supports tests on real phones. WebRTC between real devices, iOS Safari behavior, GPU performance, and audio output require device testing.
 

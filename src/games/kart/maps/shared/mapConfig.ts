@@ -35,11 +35,6 @@ interface StartPosition {
   readonly levelId?: string;
 }
 
-interface CarpetRing {
-  readonly island: Rect;
-  readonly routeWidth: number;
-}
-
 export interface ItemBoxSpawn {
   readonly x: number;
   readonly z: number;
@@ -187,7 +182,6 @@ export interface MapConfig {
   readonly room: Rect;
   readonly wallHeight: number;
   readonly wallThickness: number;
-  readonly carpet: CarpetRing;
   readonly obstacles: readonly Obstacle[];
   readonly walls: readonly Rect[];
   readonly checkpoints: readonly Gate[];
@@ -210,10 +204,10 @@ export interface MapConfig {
     readonly durationSeconds: number;
     readonly yaw: number;
   }[];
-  /** Optional route surfaces for authored maps that are not a carpet ring. */
-  readonly driveableSurfaces?: readonly Rect[];
-  /** Width of the narrowest intended route segment, used by validation and pickup reachability. */
-  readonly driveableWidth?: number;
+  /** Where the route is; arenas have none, so their karts are off the route everywhere. */
+  readonly driveableSurfaces: readonly Rect[];
+  /** Width of the narrowest intended route segment, used by validation and pickup reachability (0 in arenas). */
+  readonly driveableWidth: number;
   /** Cosmetic elevations only. The deterministic kart simulation remains projected onto x/z. */
   readonly ramps?: readonly Ramp[];
   readonly levels?: readonly MapLevel[];
@@ -252,9 +246,7 @@ export interface MapConfig {
   readonly lapCount?: number;
 }
 
-/** The four outer walls of a room, as thin rects along each edge. Shared by every map: a ring
- *  map is always a rectangular room with a rectangular island in the middle (see `CarpetRing`),
- *  so this geometry never needs to vary per map. */
+/** The four outer walls of a room, as thin rects along each edge. */
 export function buildWalls(room: Rect, thickness: number): readonly Rect[] {
   const halfWidth = room.width / 2;
   const halfDepth = room.depth / 2;

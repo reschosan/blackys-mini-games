@@ -15,16 +15,15 @@ import { segmentsCross } from '../../../src/games/kart/race/raceState';
 import { circleVsAabb, rectToAabb } from '../../../src/games/kart/maps/shared/collision';
 import { validateMap } from '../../../src/games/kart/maps/shared/mapValidation';
 import { isOnRouteSurface, routeSurfaceSpeedFactor } from '../../../src/games/kart/maps/shared/surface';
+import { ringSurfaces } from '../../support/ringTestMap';
 
 const BASE_MAP: MapConfig = {
   name: 'Teststrecke',
   room: { x: 0, z: 0, width: 30, depth: 30 },
   wallHeight: 3,
   wallThickness: 1,
-  carpet: {
-    island: { x: 0, z: 0, width: 10, depth: 10 },
-    routeWidth: 5,
-  },
+  driveableSurfaces: ringSurfaces({ x: 0, z: 0, width: 10, depth: 10 }, 5),
+  driveableWidth: 5,
   walls: buildWalls({ x: 0, z: 0, width: 30, depth: 30 }, 1),
   obstacles: [{ name: 'Island table', rect: { x: 0, z: 0, width: 3, depth: 3 }, height: 1 }],
   checkpoints: [
@@ -192,12 +191,12 @@ describe('map validation', () => {
     expect(FAMILY_HOUSE.stairTransitions).toHaveLength(2);
   });
 
-  it('fails when the carpet ring is narrower than a kart diameter', () => {
-    expect(rulesFor(map({ carpet: { ...BASE_MAP.carpet, routeWidth: KART_COLLIDER_RADIUS * 1.5 } }))).toContain('routeWidth');
+  it('fails when the route is narrower than a kart diameter', () => {
+    expect(rulesFor(map({ driveableWidth: KART_COLLIDER_RADIUS * 1.5 }))).toContain('routeWidth');
   });
 
-  it('fails when a start position leaves the carpet ring', () => {
-    expect(rulesFor(map({ startPositions: [{ ...BASE_MAP.startPositions[0]!, x: 0, z: 0 }] }))).toContain('startOnCarpet');
+  it('fails when a start position leaves the route', () => {
+    expect(rulesFor(map({ startPositions: [{ ...BASE_MAP.startPositions[0]!, x: 0, z: 0 }] }))).toContain('startOnMap');
   });
 
   it('fails when start positions overlap', () => {
@@ -210,19 +209,19 @@ describe('map validation', () => {
     ).toContain('startOverlap');
   });
 
-  it('fails when a waypoint leaves the carpet ring', () => {
-    expect(rulesFor(map({ waypoints: [{ ...BASE_MAP.waypoints[0]!, x: 0, z: 0 }] }))).toContain('waypointOnCarpet');
+  it('fails when a waypoint leaves the route', () => {
+    expect(rulesFor(map({ waypoints: [{ ...BASE_MAP.waypoints[0]!, x: 0, z: 0 }] }))).toContain('waypointOnRoute');
   });
 
-  it('fails when a checkpoint does not cross the carpet ring', () => {
-    expect(rulesFor(map({ checkpoints: [{ ax: 0, az: 0, bx: 1, bz: 0 }] }))).toContain('checkpointCrossesCarpet');
+  it('fails when a checkpoint does not cross the route', () => {
+    expect(rulesFor(map({ checkpoints: [{ ax: 0, az: 0, bx: 1, bz: 0 }] }))).toContain('checkpointCrossesRoute');
   });
 
   it('fails when an item box is too far away from the waypoint line', () => {
     expect(rulesFor(map({ itemBoxes: [{ x: 1, z: 1 }] }))).toContain('itemReachable');
   });
 
-  it('fails when an obstacle intrudes into the carpet ring', () => {
+  it('fails when an obstacle intrudes into the route', () => {
     expect(rulesFor(map({ obstacles: [{ name: 'Bad chair', rect: { x: 7.5, z: 0, width: 1, depth: 1 }, height: 1 }] }))).toContain('obstacleIntrusion');
   });
 

@@ -2,7 +2,7 @@ import { isOnLevel, type MapConfig } from '../maps/shared/mapConfig';
 import { KART_WALL_COLLIDER_RADIUS } from '../../../shared/config/kart';
 import { buildCentreline, type Centreline } from '../race/routeProgress';
 import { circleVsAabb, rectToAabb, type Aabb } from '../maps/shared/collision';
-import { collidableRects, isOnRouteSurface, routeSurfaceWidth } from '../maps/shared/surface';
+import { collidableRects, isOnRouteSurface } from '../maps/shared/surface';
 
 interface AiGuidePoint {
   readonly x: number;
@@ -51,7 +51,7 @@ function laneObstacleRadius(map: MapConfig): number {
 }
 
 function safeSpacing(map: MapConfig, point: AiGuidePoint, normalX: number, normalZ: number, obstacles: readonly Aabb[]): number {
-  const preferred = map.aiGuideSpacing?.preferred ?? Math.min(3, routeSurfaceWidth(map) / 8);
+  const preferred = map.aiGuideSpacing?.preferred ?? Math.min(3, map.driveableWidth / 8);
   const minimum = map.aiGuideSpacing?.minimum ?? Math.min(0.4, preferred);
   for (let spacing = preferred; spacing >= minimum; spacing -= 0.2) {
     const safe = LANE_MULTIPLIERS.every((lane) => {

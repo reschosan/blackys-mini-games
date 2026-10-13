@@ -1,9 +1,9 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { createModelLoader } from '../effects/modelLoader';
 import { assetUrl } from '../config/assets';
 import { PLANE_MODELS, type PlaneTypeId } from '../config/planeTypes';
 
-const loader = new GLTFLoader();
+const loader = createModelLoader();
 const loaded = new Map<PlaneTypeId, Promise<THREE.Object3D>>();
 
 /** A plane model, centred and scaled to its length with the nose along +x (the way a plane flies in the game). The files are loaded once and cloned for every pilot. */

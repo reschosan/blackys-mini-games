@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { createModelLoader } from './modelLoader';
 import { assetUrl } from '../config/assets';
 
 export type SceneryThemeId = 'nature' | 'town' | 'farm';
@@ -44,7 +44,7 @@ const THEMES: Readonly<Record<SceneryThemeId, SceneryTheme>> = {
   },
 };
 
-const loader = new GLTFLoader();
+const loader = createModelLoader();
 const loaded = new Map<string, Promise<THREE.Object3D>>();
 
 function modelOf(theme: SceneryTheme, file: string): Promise<THREE.Object3D> {

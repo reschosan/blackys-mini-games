@@ -11,7 +11,6 @@ export const FARM: MapConfig = withMapPlacements(
     room: FARM_ROOM,
     wallHeight: 1.6,
     wallThickness: 2,
-    carpet: { island: { x: 0, z: 0, width: 0, depth: 0 }, routeWidth: FARM_WIDTH },
     driveableSurfaces: FARM_SURFACES,
     driveableWidth: FARM_WIDTH,
     walls: [...FARM_BOUNDARIES, ...FARM_BARRIERS],
