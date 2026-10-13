@@ -13,7 +13,6 @@ export interface GuestGame {
   onSnapshot(raw: unknown): void;
   onStatus(phase: RemotePhase, away: readonly string[]): void;
   onEvent(event: RaceEvent): void;
-  setMuted(muted: boolean): void;
   setDecision(canDecide: boolean, selected: ResultChoice): void;
   leave(): void;
   getState(): unknown;

@@ -1,5 +1,6 @@
 import { AVAILABLE_MAPS } from '../../../games/kart/maps/registry';
 import { parseRaceSetup } from '../../../games/kart/replication/raceSetup';
+import type { SoundEngine } from '../../../shared/audio/soundEngine';
 import type { RemoteConfig } from '../../../shared/config/remote';
 import type { InputMessage } from '../../../shared/net/messages';
 import type { ClientRace } from '../../client/clientRace';
@@ -15,6 +16,7 @@ interface GuestGamesDeps {
   readonly nextInput: () => InputMessage;
   readonly sendReady: (renders: boolean) => void;
   readonly onFailure: () => void;
+  readonly sound: SoundEngine;
 }
 
 /** What a guest page needs to start the game the host announces: which build it needs and how to build it. The two kinds (the race on the kart engine with

@@ -1,6 +1,5 @@
 import { playerDisplayName } from '../../../shared/i18n/labels';
-import { SoundEngine } from '../../../shared/audio/soundEngine';
-import { createRuntimeAudio } from '../../../shared/config/audio';
+import type { SoundEngine } from '../../../shared/audio/soundEngine';
 import { createRuntimeCamera } from '../../../shared/config/camera';
 import { createRuntimeGraphics } from '../../../shared/config/graphics';
 import { createRuntimeModes } from '../../../shared/config/modes';
@@ -13,7 +12,6 @@ import type { RaceEvent } from '../../../games/kart/replication/raceSetup';
 import { createArenaMap } from '../../../games/kart/modes/arena/arenaMaps';
 import { RacePresentation } from '../../../games/kart/race/views/racePresentation';
 import { HudView, type HudPlayer } from '../../../shared/ui/hud';
-import { loadAudioSettings } from '../../../shared/ui/menus/audioPersistence';
 import { loadGraphicsSettings } from '../../../shared/ui/menus/graphicsPersistence';
 import type { EngineEntry } from '../../engine/engineView';
 import type { GuestEngineSetup } from '../../engine/engineSetup';
@@ -30,13 +28,14 @@ export interface ClientEngineDeps {
   /** Tells the host this phone has built the game and wants its picture. */
   readonly sendReady: (renders: boolean) => void;
   readonly onFailure: () => void;
+  /** The phone's one sound, shared with its lobby and its other games. */
+  readonly sound: SoundEngine;
 }
 
 /** A game that is not on the kart engine, on a guest phone: it draws what the host's snapshots show and sends the guest's input, nothing more. */
 export class ClientEngine implements GuestGame {
   private readonly hud: HudView;
   private readonly results: ClientResults;
-  private readonly sound = new SoundEngine(loadAudioSettings(createRuntimeAudio()));
   private readonly root = document.createElement('div');
   private readonly loop: GameLoop;
   private view: EngineView | null = null;
@@ -61,7 +60,6 @@ export class ClientEngine implements GuestGame {
       render: (_alpha, frameSeconds) => this.render(frameSeconds),
       onFailure: () => deps.onFailure(),
     });
-    window.addEventListener('pointerdown', () => this.sound.unlock(), { once: true });
   }
 
   /** Builds the game of a setup. Throws when drawing is impossible (no WebGL for a 3D game). */
@@ -69,6 +67,7 @@ export class ClientEngine implements GuestGame {
     this.leave();
     this.setup = setup;
     this.touchGame = entry.game.touch;
+    this.deps.sound.playMusic(entry.game.music);
     this.frame = null;
     this.results.reset();
     this.view = entry.createView(setup.seats);
@@ -78,7 +77,7 @@ export class ClientEngine implements GuestGame {
         this.deps.canvas,
         createArenaMap('platform', createRuntimeModes()),
         createRuntimeCamera(),
-        this.sound,
+        this.deps.sound,
         loadGraphicsSettings(createRuntimeGraphics()),
       );
     }
@@ -111,10 +110,6 @@ export class ClientEngine implements GuestGame {
 
   onEvent(event: RaceEvent): void {
     if (event.type === 'results') this.results.show(event.rows);
-  }
-
-  setMuted(muted: boolean): void {
-    this.sound.setMuted(muted);
   }
 
   setDecision(canDecide: boolean, selected: ResultChoice): void {

@@ -1,7 +1,6 @@
 import { FrameRateGovernor } from '../../app/frameRateGovernor';
-import { audioUnavailable, graphicsEmergency, graphicsLowered } from '../../../shared/ui/problemTexts';
-import { SoundEngine } from '../../../shared/audio/soundEngine';
-import { createRuntimeAudio } from '../../../shared/config/audio';
+import { graphicsEmergency, graphicsLowered } from '../../../shared/ui/problemTexts';
+import type { SoundEngine } from '../../../shared/audio/soundEngine';
 import { createRuntimeCamera } from '../../../shared/config/camera';
 import { createRuntimeGraphics, type GraphicsConfig } from '../../../shared/config/graphics';
 import { createRuntimeItems, type ItemConfig } from '../../../shared/config/items';
@@ -31,7 +30,6 @@ import { OwnKartLink } from './ownKartLink';
 import { playRaceEvent } from './playRaceEvent';
 import { LoadingView } from '../../../shared/ui/loadingView';
 import { ProblemView } from '../../../shared/ui/problemView';
-import { loadAudioSettings } from '../../../shared/ui/menus/audioPersistence';
 import { loadGraphicsSettings } from '../../../shared/ui/menus/graphicsPersistence';
 import { placeName, t } from '../../../shared/i18n';
 
@@ -44,6 +42,8 @@ export interface ClientRaceDeps {
   /** Tells the host this phone has built the race and wants its picture (or will only be a controller). */
   readonly sendReady: (renders: boolean) => void;
   readonly onFailure: () => void;
+  /** The phone's one sound, shared with its lobby and its other games. */
+  readonly sound: SoundEngine;
 }
 
 const colorNumber = (hex: string): number => Number.parseInt(hex.slice(1), 16);
@@ -53,7 +53,6 @@ const colorNumber = (hex: string): number => Number.parseInt(hex.slice(1), 16);
  *  snapshots (`SnapshotTimeline`). Nothing of the simulation runs here except the own kart's driving. */
 export class ClientRace {
   private readonly graphics: GraphicsConfig = loadGraphicsSettings(createRuntimeGraphics());
-  private readonly sound = new SoundEngine(loadAudioSettings(createRuntimeAudio()));
   private readonly cameraConfig = createRuntimeCamera();
   private readonly hud: ClientHud;
   private readonly results: ClientResults;
@@ -92,7 +91,6 @@ export class ClientRace {
       this.presentation?.applyGraphicsQuality();
       this.problems.showNotice(step === 'lowered' ? graphicsLowered() : graphicsEmergency());
     });
-    window.addEventListener('pointerdown', this.unlockSound, { once: true });
     this.loop = new GameLoop({
       update: () => this.update(),
       render: (alpha, frameSeconds) => this.render(alpha, frameSeconds),
@@ -100,17 +98,10 @@ export class ClientRace {
     });
   }
 
-  private readonly unlockSound = (): void => {
-    try {
-      this.sound.unlock();
-    } catch {
-      this.problems.showNotice(audioUnavailable());
-    }
-  };
-
   /** Builds the race of a setup: the map, the cats and karts, the own kart's prediction. Throws when drawing is impossible (no WebGL). */
   prepare(setup: RaceSetup): void {
     const mode = kartModeById(setup.mode)!;
+    this.deps.sound.playMusic(mode.music);
     const map = mapOfGame(mode, setup.mapIndex, createRuntimeModes());
     if (!map) throw new Error('unknown map');
     this.setup = setup;
@@ -138,7 +129,7 @@ export class ClientRace {
 
   private buildPresentation(map: MapConfig): void {
     if (!this.presentation) {
-      this.presentation = new RacePresentation(this.deps.canvas, map, this.cameraConfig, this.sound, this.graphics);
+      this.presentation = new RacePresentation(this.deps.canvas, map, this.cameraConfig, this.deps.sound, this.graphics);
     } else {
       for (const racer of this.racers) this.presentation.removeRacer(racer);
       if (this.presentedMapName !== map.name) this.presentation.setMap(map);
@@ -162,10 +153,6 @@ export class ClientRace {
     if (phase === 'lobby') this.leave();
   }
 
-  setMuted(muted: boolean): void {
-    this.sound.setMuted(muted);
-  }
-
   onSnapshot(raw: unknown): void {
     if (!(raw instanceof ArrayBuffer) || !this.timeline || !this.setup) return;
     const snapshot = decodeSnapshot(raw);
@@ -182,7 +169,7 @@ export class ClientRace {
 
   onEvent(event: RaceEvent): void {
     if (event.type === 'results') this.results.show(event.rows);
-    else playRaceEvent(event, { sound: this.sound, presentation: this.presentation, racers: this.racers, items: this.items, seat: this.setup?.seat });
+    else playRaceEvent(event, { sound: this.deps.sound, presentation: this.presentation, racers: this.racers, items: this.items, seat: this.setup?.seat });
   }
 
   setDecision(canDecide: boolean, selected: ResultChoice): void {
@@ -193,7 +180,7 @@ export class ClientRace {
   leave(): void {
     this.running = false;
     this.loop.stop();
-    this.sound.stopAllEngines();
+    this.deps.sound.stopAllEngines();
     this.hud.hide();
     this.results.clear();
     this.debug.clear();

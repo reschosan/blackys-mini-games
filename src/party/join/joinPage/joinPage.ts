@@ -79,6 +79,7 @@ export class JoinPage {
       nextInput: () => this.tickInput(),
       sendReady: (renders) => this.host.sendReady(renders),
       onFailure: () => this.stayController(t().problems.join.raceUnavailable),
+      sound: this.controls.sound,
     });
     overlay.appendChild(this.statusRoot);
     overlay.addEventListener('pointerup', this.onPointerUp);
@@ -257,7 +258,7 @@ export class JoinPage {
     ['[data-guest-mode]', () => this.controls.nextSteeringMode()],
     ['[data-guest-layout]', () => this.controls.nextLayout()],
     ['[data-guest-view]', () => this.switchViewMode()],
-    ['[data-guest-sound]', () => this.activeGame?.setMuted(this.controls.toggleSound())],
+    ['[data-guest-sound]', () => this.controls.toggleSound()],
     ['[data-guest-language]', () => this.host.sendLanguage(this.controls.switchLanguage())],
     ['[data-result-option]', (button) => this.resultsChoice.choose(resultChoiceOf(button.getAttribute('data-result-option')))],
     ['[data-pause-option]', (button) => this.pausePanel.choose(button.getAttribute('data-pause-option') === 'leave' ? 'leave' : 'resume')],
@@ -304,7 +305,16 @@ export class JoinPage {
     return this.view.kind === 'connected' ? this.view.status : null;
   }
 
-  private updateTouchControls(status: StatusMessage | null, drawingRace: boolean): void {
+  /** The page's own buttons (steering, layout, view, sound); "Nur Controller" only where the host can show a shared picture. */
+  private controlButtons(): TemplateResult {
+    return this.controls.buttons(this.shownMode, this.currentStatus()?.allowsControllerOnly !== false);
+  }
+
+  private draw(): void {
+    const status = this.currentStatus();
+    const drawingRace = this.raceShown && this.view.kind === 'connected';
+    this.canvas.hidden = !drawingRace;
+    this.controls.followMusic(status?.phase, drawingRace);
     this.touchControls.update(
       guestTouchState({
         status,
@@ -315,18 +325,6 @@ export class JoinPage {
         itemLabel: this.activeGame?.itemLabel,
       }),
     );
-  }
-
-  /** The page's own buttons (steering, layout, view, sound); "Nur Controller" only where the host can show a shared picture. */
-  private controlButtons(): TemplateResult {
-    return this.controls.buttons(this.shownMode, this.currentStatus()?.allowsControllerOnly !== false);
-  }
-
-  private draw(): void {
-    const status = this.currentStatus();
-    const drawingRace = this.raceShown && this.view.kind === 'connected';
-    this.canvas.hidden = !drawingRace;
-    this.updateTouchControls(status, drawingRace);
     if (!this.isDeciding()) this.resultsChoice.reset();
     this.activeGame?.setDecision(this.isDeciding(), this.resultsChoice.selected);
     const drawingLobby = this.guestLobby.update(status, this.controlButtons(), this.view.kind === 'connected' && !drawingRace);

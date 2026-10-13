@@ -1,4 +1,4 @@
-import type { SoundEngine } from '../../../shared/audio/soundEngine';
+import { unlockOnGestures, type SoundEngine } from '../../../shared/audio/soundEngine';
 import { audioUnavailable, gameLoopFailed, graphicsInterrupted, graphicsLost, GRAPHICS_RESTORE_WAIT_SECONDS } from '../../../shared/ui/problemTexts';
 import type { ProblemView } from '../../../shared/ui/problemView';
 
@@ -11,7 +11,8 @@ interface BrowserGuardsDeps {
 
 /** What the browser does to the game from outside: losing focus, hiding the tab, losing the graphics context, the autoplay policy. */
 export class BrowserGuards {
-  private audioStarted = false;
+  private readonly startAudio: () => void;
+  private audioTriedByGamepad = false;
   private graphicsRestoreTimer: number | null = null;
 
   constructor(private readonly deps: BrowserGuardsDeps) {
@@ -19,31 +20,20 @@ export class BrowserGuards {
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) deps.pauseRunningRace();
     });
-    window.addEventListener('pointerdown', this.startAudioOnce);
+    this.startAudio = unlockOnGestures(deps.sound, () => deps.problems.showNotice(audioUnavailable()));
     this.watchGraphicsContext();
   }
 
-  /** Browser autoplay policy: the AudioContext may only start after a user gesture. A touch or click is one;
-   *  a gamepad press is one too, and the first player joining shows that someone pressed. */
-  readonly startAudioOnce = (): void => {
-    if (this.audioStarted) return;
-    this.audioStarted = true;
-    window.removeEventListener('pointerdown', this.startAudioOnce);
-    this.unlockSound();
-  };
+  /** A gamepad press counts as a user gesture in some browsers, and the first player joining shows that someone pressed. */
+  startAudioOnce(): void {
+    if (this.audioTriedByGamepad) return;
+    this.audioTriedByGamepad = true;
+    this.startAudio();
+  }
 
   reportLoopFailure(error: unknown): void {
     console.error('Game loop stopped after an error', error);
     this.deps.problems.showFatal(gameLoopFailed());
-  }
-
-  private unlockSound(): void {
-    try {
-      this.deps.sound.unlock();
-    } catch (error) {
-      console.error('Audio could not be started', error);
-      this.deps.problems.showNotice(audioUnavailable());
-    }
   }
 
   private watchGraphicsContext(): void {

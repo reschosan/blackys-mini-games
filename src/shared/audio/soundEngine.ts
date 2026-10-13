@@ -3,6 +3,9 @@ import type { ItemType } from '../config/items';
 import { MusicPlayer } from './music/musicPlayer';
 import type { MusicTrackId } from './music/tracks';
 
+/** The events that count as a user gesture for the autoplay policy; a finger going down (`pointerdown`) is none, lifting it is. */
+const GESTURES = ['pointerup', 'keydown'] as const;
+
 interface EngineVoice {
   readonly osc: OscillatorNode;
   readonly gain: GainNode;
@@ -27,6 +30,10 @@ export class SoundEngine {
   private wantedMusic: MusicTrackId | null = 'lobby';
 
   constructor(private readonly config: AudioConfig) {}
+
+  get isRunning(): boolean {
+    return this.ctx?.state === 'running';
+  }
 
   unlock(): void {
     if (this.ctx) {
@@ -58,6 +65,11 @@ export class SoundEngine {
   playMusic(track: MusicTrackId): void {
     this.wantedMusic = track;
     this.music?.play(track);
+  }
+
+  stopMusic(): void {
+    this.wantedMusic = null;
+    this.music?.stop();
   }
 
   private sfxGain(level: number): number {
@@ -225,4 +237,24 @@ export class SoundEngine {
     for (const engine of this.engines.values()) engine.osc.stop();
     this.engines.clear();
   }
+}
+
+/** Starts the sound with the next user gesture and tries again with every further one until it runs: Safari keeps a context
+ *  that was not started inside a gesture suspended. Returns the attempt for moments the page knows are a gesture too. */
+export function unlockOnGestures(sound: SoundEngine, onFailure: () => void): () => void {
+  let settled = false;
+  const attempt = (): void => {
+    if (settled) return;
+    try {
+      sound.unlock();
+      settled = sound.isRunning;
+    } catch (error) {
+      console.error('Audio could not be started', error);
+      settled = true;
+      onFailure();
+    }
+    if (settled) GESTURES.forEach((type) => window.removeEventListener(type, attempt, true));
+  };
+  GESTURES.forEach((type) => window.addEventListener(type, attempt, true));
+  return attempt;
 }
